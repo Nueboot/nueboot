@@ -1,0 +1,38 @@
+{
+  "name": "fulvia",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mickey Loreti",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html ",
+    "build": "parcel build index.html --no-minify --public-url /"
+  },
+  "dependencies": {
+    "babel-preset-react-app": "^3.1.1",
+    "firebase": "^4.13.1",
+    "parcel-bundler": "^1.7.1",
+    "parcel-plugin-typescript": "^0.7.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0",
+    "tslint": "^5.9.1",
+    "tslint-react": "^3.5.1",
+    "typescript": "^2.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^10.0.3",
+    "@types/react": "^16.3.13",
+    "@types/react-dom": "^16.0.5",
+    "@types/react-redux": "^5.0.19",
+    "@types/react-router-dom": "4.2.6",
+    "@types/redux": "^3.6.0",
+    "@types/webpack-env": "^1.13.6",
+    "babel-plugin-dynamic-import-node": "1.2.0",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "redux-devtools-extension": "^2.13.2"
+  }
+}
