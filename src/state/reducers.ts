@@ -1,3 +1,4 @@
+import { routerReducer } from 'react-router-redux';
 import { combineReducers } from 'redux';
 
 const sample = (state = {}, action) => {
@@ -8,6 +9,7 @@ const sample = (state = {}, action) => {
 };
 
 const rootReducer = combineReducers({
+  router: routerReducer,
   sample,
 });
 

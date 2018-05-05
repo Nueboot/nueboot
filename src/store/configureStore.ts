@@ -1,15 +1,18 @@
+import { routerMiddleware } from 'react-router-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 
-import rootReducer from '../state/reducers';
+import rootReducer from 'state/reducers';
 
-export default function configureStore(preloadedState) {
+const preloadedState = {};
+
+export default function configureStore(history) {
   return createStore(
     rootReducer,
     preloadedState,
     composeWithDevTools(
-      applyMiddleware(thunkMiddleware),
+      applyMiddleware(routerMiddleware(history), thunkMiddleware),
     ),
   );
 }
