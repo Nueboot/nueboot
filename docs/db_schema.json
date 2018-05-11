@@ -1,0 +1,73 @@
+{
+  "users": {
+    "1": {
+      "userName": "Giovanni Uno",
+      "avatarUrl": "https://www.google.com",
+      "reviews": {
+        "1": true
+      }
+    },
+    "2": {
+      "userName": "Giovanni Due",
+      "avatarUrl": "https://www.google.com",
+      "reviews": {
+        "1": true,
+        "2": true
+      }
+    }
+  },
+  "boots": {
+    "bootId1": {
+      "brand": "Adidas",
+      "model": "Predator",
+      "material": "synthetic",
+      "releaseDate": 1459361875666,
+      "weight": 10.3,
+      "msrp": 120,
+      "reviewCount": 9,
+      "rating": 4.9
+    },
+    "bootId2": {
+      "brand": "Nike",
+      "model": "Vapor",
+      "material": "synthetic",
+      "releaseDate": 1459361875666,
+      "weight": 9.1,
+      "msrp": 240,
+      "reviewCount": 29,
+      "rating": 4.1
+    }
+  },
+  "reviews": {
+    "bootId1": {
+      "reviewId1": {
+        "id": 1,
+        "created": 1459361875666,
+        "body": "Hello world, this is the best review.",
+        "rating": 5,
+        "fitRating": 0,
+        "comfortRating": 1,
+        "touchRating": 2,
+        "user": {
+          "userId": 1,
+          "userName": "Giovanni Uno",
+          "avatarUrl": null
+        }
+      },
+      "reviewId2": {
+        "id": 2,
+        "created": 1459361875666,
+        "body": "Hello world, this is the best review.",
+        "rating": 2,
+        "fitRating": 1,
+        "comfortRating": 0,
+        "touchRating": 1,
+        "user": {
+          "userId": 2,
+          "userName": "Giovanni Due",
+          "avatarUrl": "https://www.google.com"
+        }
+      }
+    }
+  }
+}
