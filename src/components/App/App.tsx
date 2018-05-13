@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
-import Routes from 'components/Routes';
-import configureStore from 'store/configureStore';
+import configureStore from '../../store/configureStore';
+import Routes from '../Routes';
 
 const history = createHistory();​
 const store = configureStore(history);
