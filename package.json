@@ -11,7 +11,9 @@
   },
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "cross-env NODE_ENV=production parcel build ./index.html --public-url ./"
+    "build": "cross-env NODE_ENV=production parcel build ./index.html --public-url ./",
+    "test": "jest",
+    "watch": "jest --watch"
   },
   "dependencies": {
     "react": "^16.3.2",
@@ -23,6 +25,9 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.10",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
+    "@types/jest": "^22.2.3",
     "@types/node": "^10.0.3",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
@@ -31,17 +36,52 @@
     "@types/react-router-redux": "^5.0.13",
     "@types/redux": "^3.6.0",
     "@types/webpack-env": "^1.13.6",
-    "babel-preset-react-app": "^3.1.1",
     "babel-plugin-dynamic-import-node": "1.2.0",
     "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-preset-react-app": "^3.1.1",
     "cross-env": "^5.1.5",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "firebase": "^4.13.1",
+    "jest": "^22.4.3",
     "parcel-bundler": "^1.7.1",
-    "parcel-plugin-typescript": "^0.7.0",
     "parcel-plugin-clean-dist": "0.0.6",
+    "parcel-plugin-typescript": "^0.7.0",
     "redux-devtools-extension": "^2.13.2",
+    "ts-jest": "^22.4.6",
     "tslint": "^5.9.1",
     "tslint-react": "^3.5.1",
     "typescript": "^2.8.3"
+  },
+  "jest": {
+    "cacheDirectory": "<rootDir>/.jest",
+    "coveragePathIgnorePatterns": ["<rootDir>/config/jest/"],
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    },
+    "setupFiles": [
+      "<rootDir>/config/jest/test-shim.ts"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/config/jest/framework.ts",
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.(test|spec).(ts|tsx|js)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ]
   }
 }
