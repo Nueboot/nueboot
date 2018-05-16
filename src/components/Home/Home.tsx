@@ -6,7 +6,7 @@ const Heading = styled('h1')`
 `;
 
 const Home = () => (
-  <Heading>Hello world</Heading>
+  <Heading>Hi</Heading>
 );
 
 export default Home;
