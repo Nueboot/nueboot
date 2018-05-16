@@ -10,8 +10,8 @@
     "url": "http://github.com/nueboot/nueboot"
   },
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "cross-env NODE_ENV=production parcel build ./index.html --public-url ./",
+    "start": "parcel src/index.html --open",
+    "build": "cross-env NODE_ENV=production parcel build ./src/index.html --public-url ./",
     "test": "jest --coverage --config config/jest/config.json",
     "watch": "jest --watch --config config/jest/config.json"
   },
