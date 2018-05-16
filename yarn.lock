@@ -6017,6 +6017,10 @@ symbol-tree@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
 
+tachyons-components@^1.0.0-1:
+  version "1.0.0-1"
+  resolved "https://registry.yarnpkg.com/tachyons-components/-/tachyons-components-1.0.0-1.tgz#2a82263151552ac1e64f3607b71a05e278f78538"
+
 tar-pack@^3.4.0:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/tar-pack/-/tar-pack-3.4.1.tgz#e1dbc03a9b9d3ba07e896ad027317eb679a10a1f"

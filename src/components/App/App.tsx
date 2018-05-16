@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'react-router-redux';
 
 import configureStore from '../../store/configureStore';
 import Routes from '../Routes';
+import './normalize.css';
 
 const history = createHistory();​
 const store = configureStore(history);

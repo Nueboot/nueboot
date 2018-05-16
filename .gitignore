@@ -2,3 +2,5 @@ node_modules
 dist
 .cache
 .jest
+yarn-debug.log*
+yarn-error.log*
