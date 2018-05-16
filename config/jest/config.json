@@ -1,0 +1,23 @@
+{
+  "cacheDirectory": "<rootDir>/.jest",
+  "clearMocks": true,
+  "coveragePathIgnorePatterns": ["<rootDir>/config/jest/", "/node_modules/"],
+  "coverageReporters": ["text", "text-summary", "html"],
+  "globals": {
+    "ts-jest": {
+      "useBabelrc": true
+    }
+  },
+  "moduleFileExtensions": ["ts", "tsx", "json", "js", "jsx"],
+  "modulePathIgnorePatters": ["<rootDir>/coverage, <rootDir>/dist"],
+  "modulePaths": ["<rootDir>/src"],
+  "rootDir": "../..",
+  "setupTestFrameworkScriptFile": "<rootDir>/config/jest/framework.ts",
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.(test|spec).(ts|tsx|js)"
+    ]
+}

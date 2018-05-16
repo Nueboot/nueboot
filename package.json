@@ -12,8 +12,8 @@
   "scripts": {
     "start": "parcel index.html --open",
     "build": "cross-env NODE_ENV=production parcel build ./index.html --public-url ./",
-    "test": "jest",
-    "watch": "jest --watch"
+    "test": "jest --coverage --config config/jest/config.json",
+    "watch": "jest --watch --config config/jest/config.json"
   },
   "dependencies": {
     "react": "^16.3.2",
@@ -54,35 +54,5 @@
     "tslint": "^5.9.1",
     "tslint-react": "^3.5.1",
     "typescript": "^2.8.3"
-  },
-  "jest": {
-    "cacheDirectory": "<rootDir>/.jest",
-    "coveragePathIgnorePatterns": ["<rootDir>/config/jest/"],
-    "modulePaths": [
-      "<rootDir>/src"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "globals": {
-      "ts-jest": {
-        "useBabelrc": true
-      }
-    },
-    "setupFiles": [
-      "<rootDir>/config/jest/test-shim.ts"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/config/jest/framework.ts",
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "testMatch": [
-      "**/*.(test|spec).(ts|tsx|js)"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "ts",
-      "tsx"
-    ]
   }
 }

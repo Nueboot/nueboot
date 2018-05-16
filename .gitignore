@@ -2,5 +2,6 @@ node_modules
 dist
 .cache
 .jest
+coverage/
 yarn-debug.log*
 yarn-error.log*
