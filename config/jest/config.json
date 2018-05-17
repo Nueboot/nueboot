@@ -9,7 +9,7 @@
     }
   },
   "moduleFileExtensions": ["ts", "tsx", "json", "js", "jsx"],
-  "modulePathIgnorePatters": ["<rootDir>/coverage, <rootDir>/dist"],
+  "modulePathIgnorePatterns": ["<rootDir>/coverage, <rootDir>/dist"],
   "modulePaths": ["<rootDir>/src"],
   "rootDir": "../..",
   "setupTestFrameworkScriptFile": "<rootDir>/config/jest/framework.ts",
