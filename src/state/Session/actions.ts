@@ -10,7 +10,7 @@ export const verifyUser = () => dispatch => {
   });
 };
 
-export const loginUser = (type, user) => dispatch => {
+export const loginUser = (type: ('login'|'signup'), user) => dispatch => {
   try {
     const { email, password } = user;
     if (type === 'login') {
