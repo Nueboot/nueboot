@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
+import { verifyUser } from 'state/Session/actions';
 import configureStore from '../../store/configureStore';
 import Routes from '../Routes';
 import './normalize.css';
@@ -10,7 +11,7 @@ import './normalize.css';
 const history = createHistory();​
 const store = configureStore(history);
 
-(window as any).store = store;
+store.dispatch(verifyUser());
 
 export default class App extends Component {
   public render() {

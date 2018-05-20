@@ -1,7 +1,7 @@
 import { routerMiddleware } from 'react-router-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunkMiddleware from 'redux-thunk';
+import thunk from 'redux-thunk';
 
 import rootReducer from '../state/reducers';
 
@@ -12,7 +12,7 @@ export default function configureStore(history) {
     rootReducer,
     preloadedState,
     composeWithDevTools(
-      applyMiddleware(routerMiddleware(history), thunkMiddleware),
+      applyMiddleware(routerMiddleware(history), thunk),
     ),
   );
 }
