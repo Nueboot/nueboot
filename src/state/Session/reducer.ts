@@ -17,7 +17,7 @@ const SessionReducer = (state = initialSessionState, action: SessionActions) => 
       return Object.assign({}, {
         loggedIn: false,
       });
-    case 'SESSION.LOGIN_ERROR':
+    case 'SESSION.ERROR':
       return {
         ...state,
         error: action.payload.error,

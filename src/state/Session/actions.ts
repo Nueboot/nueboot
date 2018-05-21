@@ -3,14 +3,14 @@ import firebase from '../../lib/firebase';
 export const verifyUser = () => dispatch => {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        dispatch(loginSuccess());
+      dispatch(loginSuccess());
     } else {
-        dispatch(logoutUser());
+      dispatch(logoutUser());
     }
   });
 };
 
-export const loginUser = (type, user) => dispatch => {
+export const loginUser = (type: ('login'|'signup'), user) => dispatch => {
   try {
     const { email, password } = user;
     if (type === 'login') {
@@ -32,7 +32,7 @@ export const loginSuccess: () => LoginSuccessAction = () => ({
 });
 
 export interface LoginErrorAction {
-  readonly type: 'SESSION.LOGIN_ERROR';
+  readonly type: 'SESSION.ERROR';
   readonly payload: {
     error: string,
   };
@@ -42,7 +42,7 @@ export const sessionError: (err: string) => LoginErrorAction = error => ({
   payload: {
     error,
   },
-  type: 'SESSION.LOGIN_ERROR',
+  type: 'SESSION.ERROR',
 });
 
 export const logoutUser = () => dispatch => {
