@@ -5,7 +5,7 @@ export const verifyUser = () => dispatch => {
     if (user) {
       dispatch(loginSuccess());
     } else {
-        dispatch(logoutUser());
+      dispatch(logoutUser());
     }
   });
 };

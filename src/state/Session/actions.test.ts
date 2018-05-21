@@ -91,39 +91,61 @@ describe('Session Actions', () => {
   describe('.verifyUser', () => {
     describe('when a user exists', () => {
       beforeEach(() => {
-        jest.spyOn(firebase, 'auth').mockReturnValue({
-          onAuthStateChanged: jest.fn().mockResolvedValue('user'),
-        });
+        (firebase.auth as any) = jest.fn(() => ({
+          onAuthStateChanged: jest.fn(cb => cb({
+            displayName: 'displayName',
+            uid: 'uid',
+          })),
+        }));
         store.dispatch(verifyUser());
       });
 
       it('dispatches a login user action', () => {
-        expect(store.getActions()).toEqual([]);
+        expect(store.getActions()[0].type).toEqual('SESSION.LOGIN_SUCCESS');
       });
     });
 
     describe('when a user exists', () => {
       beforeEach(() => {
-        jest.spyOn(firebase, 'auth').mockReturnValue({
-          onAuthStateChanged: jest.fn().mockRejectedValue('user'),
-        });
+        (firebase.auth as any) = jest.fn(() => ({
+          onAuthStateChanged: jest.fn(cb => cb(null)),
+        }));
         store.dispatch(verifyUser());
-        store.dispatch(verifyUser);
       });
 
       it('dispatches a logout user action', () => {
-        expect(store.getActions()).toEqual([]);
+        expect(store.getActions()[0].type).toEqual('SESSION.ERROR');
       });
     });
   });
 
   describe('.logoutUser', () => {
-    beforeEach(() => {
-      store.dispatch(logoutUser());
+    describe('when the logout is successful', () => {
+      beforeEach(() => {
+        (firebase.auth as any) = jest.fn(() => ({
+          signOut: jest.fn(),
+        }));
+
+        store.dispatch(logoutUser());
+      });
+
+      it('dispatches a logout action', () => {
+        expect(store.getActions()[0].type).toBe('SESSION.SIGNOUT_SUCCESS');
+      });
     });
 
-    it('dispatches a logout action', () => {
-      expect(store.getActions()[0].type).toBe('SESSION.ERROR');
+    describe('when the logout is unsuccessful', () => {
+      beforeEach(() => {
+        (firebase.auth as any) = jest.fn(() => ({
+          signOut: Promise.reject,
+        }));
+
+        store.dispatch(logoutUser());
+      });
+
+      it('dispatches a logout action', () => {
+        expect(store.getActions()[0].type).toBe('SESSION.ERROR');
+      });
     });
   });
 });
