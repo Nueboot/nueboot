@@ -101,7 +101,7 @@ describe('Session Actions', () => {
       });
 
       it('dispatches a login user action', () => {
-        expect(store.getActions()[0].type).toEqual('SESSION.LOGIN_SUCCESS');
+        expect(store.getActions()[1].type).toEqual('SESSION.LOGIN_SUCCESS');
       });
     });
 
@@ -114,7 +114,7 @@ describe('Session Actions', () => {
       });
 
       it('dispatches a logout user action', () => {
-        expect(store.getActions()[0].type).toEqual('SESSION.ERROR');
+        expect(store.getActions()[1].type).toEqual('SESSION.ERROR');
       });
     });
   });

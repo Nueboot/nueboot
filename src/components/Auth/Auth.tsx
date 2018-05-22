@@ -1,43 +1,42 @@
 import React from 'react';
 
-import firebase from '../../lib/firebase';
-import { DispatchProps, StateProps } from './AuthContainer';
+import { LoginInfo } from '../../state/Session/types';
 
-export interface AuthState {
+export interface State {
   readonly email: string;
   readonly password: string;
   [key: string]: string | boolean;
 }
 
-type State = AuthState & StateProps;
+export interface StateProps {
+  loggedIn: boolean;
+  pending: boolean;
+}
 
-export default class Auth extends React.Component<DispatchProps, State> {
+export interface DispatchProps {
+  loginUser(user: LoginInfo): void;
+  signUpUser(user: LoginInfo): void;
+  signout(): void;
+}
+
+export type AuthProps = StateProps & DispatchProps;
+
+export default class Auth extends React.Component<AuthProps, State> {
   public firebaseAuth;
 
   public constructor(props) {
     super(props);
     this.state = {
       email: '',
-      loggedIn: false,
       password: '',
     };
   }
 
-  public componentDidMount() {
-    this.firebaseAuth = firebase.auth().onAuthStateChanged(user => {
-      this.setState((prevState, props) => ({
-        loggedIn: !!user,
-      }));
-    });
-  }
-
-  public componentWillMount() {
-    this.firebaseAuth = null;
-  }
-
   public render() {
-    const { loggedIn } = this.state;
-
+    const { loggedIn, pending } = this.props;
+    if (pending) {
+      return null;
+    }
     return loggedIn ? this.logout() : this.form();
   }
 

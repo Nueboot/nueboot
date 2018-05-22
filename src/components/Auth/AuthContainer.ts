@@ -1,27 +1,19 @@
 import { connect } from 'react-redux';
 
-import { isLoggedIn } from 'state/Session/selectors';
+import { isLoggedIn, isPending } from 'state/Session/selectors';
+import { State } from 'state/types';
 import { loginUser, logoutUser } from '../../state/Session/actions';
 import { LoginInfo } from '../../state/Session/types';
-import Auth from './Auth';
+import Auth, { DispatchProps, StateProps } from './Auth';
 
-export interface DispatchProps {
-  loginUser(user: LoginInfo): void;
-  signUpUser(user: LoginInfo): void;
-  signout(): void;
-}
-
-export interface StateProps {
-  loggedIn: boolean;
-}
-
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: State, ownProps): StateProps => {
   return {
     loggedIn: isLoggedIn(state),
+    pending: isPending(state),
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, ownProps): DispatchProps => {
   return {
     loginUser: (user: LoginInfo) => dispatch(loginUser('login', user)),
     signUpUser: (user: LoginInfo) => dispatch(loginUser('signup', user)),

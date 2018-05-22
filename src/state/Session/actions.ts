@@ -1,6 +1,7 @@
 import firebase from '../../lib/firebase';
 
-export const verifyUser = () => dispatch => {
+export const verifyUser = () => async dispatch => {
+  dispatch(verifyingUser());
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       dispatch(loginSuccess());
@@ -9,6 +10,14 @@ export const verifyUser = () => dispatch => {
     }
   });
 };
+
+export interface VerifyingUser {
+  readonly type: 'SESSION.PENDING';
+}
+
+export const verifyingUser: () => VerifyingUser = () => ({
+  type: 'SESSION.PENDING',
+});
 
 export const loginUser = (type: ('login'|'signup'), user) => dispatch => {
   try {
