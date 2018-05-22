@@ -6,10 +6,3 @@ Object {
   "pending": false,
 }
 `;
-
-exports[`Session reducer with no action returns the the default state 1`] = `
-Object {
-  "loggedIn": false,
-  "pending": false,
-}
-`;
