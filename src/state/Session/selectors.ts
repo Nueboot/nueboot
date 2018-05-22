@@ -1,9 +1,13 @@
 import { State } from '../types';
 
-export const isLoggedIn = (state: State) => {
+export type IsLoggedIn = (state: State) => boolean;
+
+export const isLoggedIn: IsLoggedIn = state => {
   return state.session.loggedIn;
 };
 
-export const isPending = (state: State) => {
+export type IsPending = (state: State) => boolean;
+
+export const isPending: IsPending = state => {
   return state.session.pending;
 };
