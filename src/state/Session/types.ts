@@ -1,5 +1,5 @@
 export interface SessionState {
-  error: string;
+  error?: string;
   loggedIn: boolean;
   pending: boolean;
 }

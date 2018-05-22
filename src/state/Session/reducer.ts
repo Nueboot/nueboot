@@ -1,14 +1,17 @@
-import { LoginErrorAction, LoginSuccessAction, SignOutSuccessAction, VerifyingUser } from './actions';
+import { LoginErrorAction, LoginSuccessAction, SignOutSuccessAction, VerifyingUserAction } from './actions';
+import { SessionState } from './types';
 
 export const initialSessionState = {
-  error: '',
   loggedIn: false,
   pending: false,
 };
 
-type SessionActions = LoginSuccessAction | LoginErrorAction | SignOutSuccessAction | VerifyingUser;
+export interface OtherAction { type: ''; }
+export const OtherAction: OtherAction = { type: '' };
 
-const SessionReducer = (state = initialSessionState, action: SessionActions) => {
+type SessionActions =  LoginErrorAction | LoginSuccessAction | SignOutSuccessAction | VerifyingUserAction | OtherAction;
+
+const SessionReducer = (state: SessionState = initialSessionState, action: SessionActions = OtherAction) => {
   switch (action.type) {
     case 'SESSION.LOGIN_SUCCESS':
       return Object.assign({}, {
@@ -24,6 +27,7 @@ const SessionReducer = (state = initialSessionState, action: SessionActions) => 
       });
     case 'SESSION.PENDING':
       return Object.assign({}, {
+        ...state,
         pending: true,
       });
     case 'SESSION.ERROR':

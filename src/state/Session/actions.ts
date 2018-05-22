@@ -11,11 +11,11 @@ export const verifyUser = () => async dispatch => {
   });
 };
 
-export interface VerifyingUser {
+export interface VerifyingUserAction {
   readonly type: 'SESSION.PENDING';
 }
 
-export const verifyingUser: () => VerifyingUser = () => ({
+export const verifyingUser: () => VerifyingUserAction = () => ({
   type: 'SESSION.PENDING',
 });
 
