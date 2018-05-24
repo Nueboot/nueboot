@@ -1,6 +1,8 @@
+import { auth } from 'firebase';
+
 import firebase from '../../lib/firebase';
 
-export const verifyUser = () => async dispatch => {
+export const verifyUser = () => dispatch => {
   dispatch(verifyingUser());
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -70,3 +72,21 @@ export interface SignOutSuccessAction {
 export const signOutSuccess: () => SignOutSuccessAction = () => ({
   type: 'SESSION.SIGNOUT_SUCCESS',
 });
+
+export const loginWithGoogle = () => dispatch => {
+  const provider = new auth.GoogleAuthProvider();
+  dispatch(oauthLogin(provider));
+};
+
+export const loginWithFacebook = () => dispatch => {
+  const provider = new auth.FacebookAuthProvider();
+  dispatch(oauthLogin(provider));
+};
+
+export const oauthLogin = provider => dispatch => {
+  firebase.auth().signInWithPopup(provider).then(res => {
+    dispatch(loginSuccess());
+  }).catch(err => {
+    dispatch(sessionError(err));
+  });
+};
