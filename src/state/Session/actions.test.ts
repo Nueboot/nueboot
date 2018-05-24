@@ -227,4 +227,5 @@ describe('Session Actions', () => {
         expect(store.getActions()[0].type).toBe('SESSION.ERROR');
       });
     });
+  });
 });
