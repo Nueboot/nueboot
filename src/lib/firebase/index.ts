@@ -9,6 +9,4 @@ const config = {
   storageBucket: 'nueboot-app.appspot.com',
 };
 
-firebase.initializeApp(config);
-
-export default firebase;
+export default firebase.initializeApp(config);
