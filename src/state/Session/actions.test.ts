@@ -1,14 +1,16 @@
 jest.mock('lib/firebase');
 
+import firebase from 'lib/firebase';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import firebase from '../../lib/firebase';
 import {
   LoginErrorAction,
   loginSuccess,
   LoginSuccessAction,
   loginUser,
+  loginWithFacebook,
+  loginWithGoogle,
   logoutUser,
   sessionError,
   signOutSuccess,
@@ -97,7 +99,12 @@ describe('Session Actions', () => {
             uid: 'uid',
           })),
         }));
+
         store.dispatch(verifyUser());
+      });
+
+      it('dispatches a pending action', () => {
+        expect(store.getActions()[0].type).toEqual('SESSION.PENDING');
       });
 
       it('dispatches a login user action', () => {
@@ -105,11 +112,12 @@ describe('Session Actions', () => {
       });
     });
 
-    describe('when a user exists', () => {
+    describe('when no user exists', () => {
       beforeEach(() => {
         (firebase.auth as any) = jest.fn(() => ({
           onAuthStateChanged: jest.fn(cb => cb(null)),
         }));
+
         store.dispatch(verifyUser());
       });
 
@@ -123,7 +131,7 @@ describe('Session Actions', () => {
     describe('when the logout is successful', () => {
       beforeEach(() => {
         (firebase.auth as any) = jest.fn(() => ({
-          signOut: jest.fn(),
+          signOut: jest.fn((() => Promise.resolve)),
         }));
 
         store.dispatch(logoutUser());
@@ -137,13 +145,85 @@ describe('Session Actions', () => {
     describe('when the logout is unsuccessful', () => {
       beforeEach(() => {
         (firebase.auth as any) = jest.fn(() => ({
-          signOut: Promise.reject,
+          signOut: jest.fn(Promise.reject),
         }));
 
         store.dispatch(logoutUser());
       });
 
       it('dispatches a logout action', () => {
+        expect(store.getActions()[0].type).toBe('SESSION.ERROR');
+      });
+    });
+  });
+
+  describe('.loginWithGoogle', () => {
+    let provider;
+
+    describe('when signing in is successful', () => {
+      beforeEach(() => {
+        provider = 'Google';
+        (firebase.auth as any) = jest.fn(() => ({
+          GoogleAuthProvider: () => provider,
+          signInWithPopup: jest.fn((() => Promise.resolve())),
+        }));
+
+        store.dispatch(loginWithGoogle());
+      });
+
+      it('dispatches oauthLogin with the provider', () => {
+        expect(store.getActions()[0].type).toBe('SESSION.LOGIN_SUCCESS');
+      });
+    });
+
+    describe('when signing in is unsuccessful', () => {
+      beforeEach(() => {
+        provider = 'Google';
+        (firebase.auth as any) = jest.fn(() => ({
+          GoogleAuthProvider: () => provider,
+          signInWithPopup: jest.fn((() => Promise.reject('Error'))),
+        }));
+
+        store.dispatch(loginWithGoogle());
+      });
+
+      it('dispatches oauthLogin with the provider', () => {
+        expect(store.getActions()[0].type).toBe('SESSION.ERROR');
+      });
+    });
+  });
+
+  describe('.loginWithFacebook', () => {
+    let provider;
+
+    describe('when signing in is successful', () => {
+      beforeEach(() => {
+        provider = 'Facebook';
+        (firebase.auth as any) = jest.fn(() => ({
+          FacebookAuthProvider: () => provider,
+          signInWithPopup: jest.fn((() => Promise.resolve())),
+        }));
+
+        store.dispatch(loginWithFacebook());
+      });
+
+      it('dispatches oauthLogin with the provider', () => {
+        expect(store.getActions()[0].type).toBe('SESSION.LOGIN_SUCCESS');
+      });
+    });
+
+    describe('when signing in is unsuccessful', () => {
+      beforeEach(() => {
+        provider = 'Facebook';
+        (firebase.auth as any) = jest.fn(() => ({
+          FacebookAuthProvider: () => provider,
+          signInWithPopup: jest.fn((() => Promise.reject('Error'))),
+        }));
+
+        store.dispatch(loginWithFacebook());
+      });
+
+      it('dispatches oauthLogin with the provider', () => {
         expect(store.getActions()[0].type).toBe('SESSION.ERROR');
       });
     });
