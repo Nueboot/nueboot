@@ -50,8 +50,8 @@ export default class Auth extends React.Component<AuthProps, State> {
       this.state.tab === 'login' ? this.loginView() : this.signUpView();
     return (
       <div>
-        <div onClick={() => this.setState({ tab: 'login' })}>Log In</div>
-        <div onClick={() => this.setState({ tab: 'signup' })}>Sign Up</div>
+        <button onClick={() => this.setState({ tab: 'login' })}>Log In</button>
+        <button onClick={() => this.setState({ tab: 'signup' })}>Sign Up</button>
         {view}
       </div>
     );
