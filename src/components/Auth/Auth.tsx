@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Button } from '../Styled';
+
 import { LoginInfo } from '../../state/Session/types';
 
 export interface State {
@@ -48,10 +50,11 @@ export default class Auth extends React.Component<AuthProps, State> {
 
     const view =
       this.state.tab === 'login' ? this.loginView() : this.signUpView();
+
     return (
       <div>
-        <button onClick={() => this.setState({ tab: 'login' })}>Log In</button>
-        <button onClick={() => this.setState({ tab: 'signup' })}>Sign Up</button>
+        <Button onClick={() => this.setState({ tab: 'login' })}>Log In</Button>
+        <Button onClick={() => this.setState({ tab: 'signup' })}>Sign Up</Button>
         {view}
       </div>
     );
@@ -84,7 +87,7 @@ export default class Auth extends React.Component<AuthProps, State> {
           onChange={this.onInputChange}
           value={this.state.password}
         />
-        <button onClick={this.handleSignUp}>Sign Up</button>
+        <Button onClick={this.handleSignUp}>Sign Up</Button>
       </form>
     );
   }
@@ -108,9 +111,9 @@ export default class Auth extends React.Component<AuthProps, State> {
           onChange={this.onInputChange}
           value={this.state.password}
         />
-        <button onClick={this.handleLogin}>Login</button>
-        <button onClick={this.googleLogin}>Login with Google</button>
-        <button onClick={this.facebookLogin}>Login with Facebook</button>
+        <Button onClick={this.handleLogin}>Login</Button>
+        <Button onClick={this.googleLogin}>Login with Google</Button>
+        <Button onClick={this.facebookLogin}>Login with Facebook</Button>
       </form>
     );
   }

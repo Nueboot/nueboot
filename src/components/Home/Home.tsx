@@ -1,12 +1,11 @@
 import React from 'react';
-import styled from 'tachyons-components';
 
-const Heading = styled('h1')`
-  sans-serif f1
-`;
+import Header from '../Header';
 
 const Home = () => (
-  <Heading>Hi</Heading>
+  <div className="home">
+    <Header />
+  </div>
 );
 
 export default Home;

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
 import { verifyUser } from 'state/Session/actions';
+import 'tachyons/css/tachyons.min.css';
 import configureStore from '../../store/configureStore';
 import Routes from '../Routes';
 import './normalize.css';

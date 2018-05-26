@@ -1,6 +1,7 @@
 import { auth } from 'firebase';
 
 import firebase from '../../lib/firebase';
+import { AuthTypes } from './types';
 
 export const verifyUser = () => dispatch => {
   dispatch(verifyingUser());
@@ -21,7 +22,7 @@ export const verifyingUser: () => VerifyingUserAction = () => ({
   type: 'SESSION.PENDING',
 });
 
-export const loginUser = (type: ('login'|'signup'), user) => dispatch => {
+export const loginUser = (type: AuthTypes, user) => dispatch => {
   try {
     const { email, password } = user;
     if (type === 'login') {

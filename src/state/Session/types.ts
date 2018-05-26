@@ -8,3 +8,5 @@ export interface LoginInfo {
   email: string;
   password: string;
 }
+
+export type AuthTypes = 'login' | 'signup';
