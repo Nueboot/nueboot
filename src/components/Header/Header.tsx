@@ -5,6 +5,7 @@ import { Container, Logo, Text } from '../Styled';
 
 export interface DispatchProps {
   readonly openModal: (type: AuthTypes) => void;
+  logout(): void;
 }
 
 export interface StateProps {
@@ -33,9 +34,16 @@ const Header: React.SFC<HeaderProps> = props => {
     props.openModal(type);
   };
 
+  const logout = () => {
+    props.logout();
+  };
+
   const auth = () => {
     if (props.pending) {
       return null;
+    }
+    if (props.loggedIn) {
+      return <Text style={style.links} className="fr pointer" onClick={logout}>Log Out</Text>;
     }
     return (
       <>
@@ -51,7 +59,7 @@ const Header: React.SFC<HeaderProps> = props => {
         <div className="fl" style={style.logo}>
           <Logo />
         </div>
-        {auth() }
+        {auth()}
       </Container>
     </div>
   );

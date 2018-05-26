@@ -1,23 +1,21 @@
-import { connect, Dispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { openModal } from 'state/Modal/actions';
-import { AuthTypes } from 'state/Session/types';
-
+import { logoutUser } from 'state/Session/actions';
 import { isLoggedIn, isPending } from 'state/Session/selectors';
+import { AuthTypes } from 'state/Session/types';
 import { State } from 'state/types';
+
 import Header, { DispatchProps, StateProps } from './Header';
 
-export type MapStateToProps = (state: State) => StateProps;
-
-export const mapStateToProps: MapStateToProps = state => ({
+export const mapStateToProps = (state: State): StateProps => ({
   loggedIn: isLoggedIn(state),
   pending: isPending(state),
 });
 
-export type MapDispatchToProps = (dispatch: Dispatch<State>) => DispatchProps;
-
-export const mapDispatchToProps: MapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = (dispatch): DispatchProps => ({
   openModal: (modalType: AuthTypes) => dispatch(openModal(modalType)),
+  logout: () => dispatch(logoutUser()),
 });
 
 const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
