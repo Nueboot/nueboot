@@ -2,6 +2,7 @@ import createHistory from 'history/createBrowserHistory';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
+import 'typeface-heebo';
 
 import { verifyUser } from 'state/Session/actions';
 import 'tachyons/css/tachyons.min.css';

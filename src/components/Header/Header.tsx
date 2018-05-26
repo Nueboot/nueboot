@@ -1,20 +1,58 @@
 import React from 'react';
 import { AuthTypes } from 'state/Session/types';
 
-import { Logo } from '../Styled';
+import { Container, Logo, Text } from '../Styled';
 
 export interface DispatchProps {
   readonly openModal: (type: AuthTypes) => void;
 }
 
-export type HeaderProps = DispatchProps;
+export interface StateProps {
+  readonly loggedIn: boolean;
+  readonly pending: boolean;
+}
+
+export type HeaderProps = DispatchProps & StateProps;
+
+interface Style {
+  logo: React.CSSProperties;
+  links: React.CSSProperties;
+}
+
+const style: Style = {
+  logo: {
+    width: '105px',
+  },
+  links: {
+    fontWeight: 500,
+  },
+};
 
 const Header: React.SFC<HeaderProps> = props => {
+  const handleClick = (type: AuthTypes) => () => {
+    props.openModal(type);
+  };
+
+  const auth = () => {
+    if (props.pending) {
+      return null;
+    }
+    return (
+      <>
+        <Text style={style.links} className="fr pointer" onClick={handleClick('signup')}>Sign Up</Text>
+        <Text style={style.links} className="fr pointer mr4" onClick={handleClick('login')}>Log In</Text>
+      </>
+    );
+  };
+
   return(
-    <div className="header">
-      <div style={{width: '105px'}}>
-        <Logo />
-      </div>
+    <div className="header mv4 cf">
+      <Container>
+        <div className="fl" style={style.logo}>
+          <Logo />
+        </div>
+        {auth() }
+      </Container>
     </div>
   );
 };
