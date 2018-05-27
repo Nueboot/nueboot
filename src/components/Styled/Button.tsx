@@ -13,7 +13,7 @@ const Button: React.SFC<ButtonProps> = props => {
   };
 
   const className = `
-    f6 link dim ph3 pv2 mb2 sans-serif hover-white hover-bg-gray br2
+    f6 link ph3 pv2 mb2 sans-serif br2
     ${props.className}
   `;
 

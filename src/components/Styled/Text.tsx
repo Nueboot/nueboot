@@ -16,9 +16,9 @@ const Text: React.SFC<TextProps> = props => {
     return [...classes, props.className].join(' ');
   };
   return(
-    <p className={getClassName()} style={style} onClick={props.onClick}>
+    <span className={getClassName()} style={style} onClick={props.onClick}>
       {props.children}
-    </p>
+    </span>
   );
 };
 

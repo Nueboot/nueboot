@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-import Auth from '../Auth';
-import { Button } from '../Styled';
+import { AuthTypes } from 'state/Session/types';
+import { Text } from '../Styled';
+import AuthLogin from './AuthLogin';
+import AuthSignup from './AuthSignup';
 
-export interface State {
-  readonly showModal: boolean;
+export interface StateProps {
+  modal: string | null;
 }
+
+export interface DispatchProps {
+  openModal(type: AuthTypes): void;
+  closeModal(): void;
+}
+
+export type AuthModalProps = StateProps & DispatchProps;
 
 const modalStyle = {
   overlay: {
@@ -26,39 +35,34 @@ const modalStyle = {
   },
 };
 
-export default class AuthModal extends React.Component<{}, State> {
-  public constructor(props) {
-    super(props);
-    this.state = {
-      showModal: false,
-    };
+const AuthModal: React.SFC<AuthModalProps> = props => {
+  if (!props.modal) {
+    return null;
   }
 
-  public render() {
-    return (
-      <div>
-        <Button className="bg-green white" onClick={this.handleOpenModal}>
-          Log In/Sign Up
-        </Button>
-        <ReactModal
-          ariaHideApp={false}
-          style={modalStyle}
-          isOpen={this.state.showModal}
-          onRequestClose={this.handleCloseModal}
-          contentLabel="Login"
-        >
-          <Button onClick={this.handleCloseModal}>X</Button>
-          <Auth />
-        </ReactModal>
-      </div>
+  const closeModal = () => {
+    props.closeModal();
+  };
+
+  const view =
+    props.modal === 'login' ? (
+      <AuthLogin openModal={props.openModal} />
+    ) : (
+      <AuthSignup openModal={props.openModal} />
     );
-  }
 
-  private handleOpenModal = () => {
-    this.setState({ showModal: true });
-  }
+  return (
+    <ReactModal
+      ariaHideApp={false}
+      style={modalStyle}
+      isOpen={!!props.modal}
+      onRequestClose={closeModal}
+      contentLabel="Login"
+    >
+      <Text className="pointer fr" onClick={closeModal}>X</Text>
+      {view}
+    </ReactModal>
+  );
+};
 
-  private handleCloseModal = () => {
-    this.setState({ showModal: false });
-  }
-}
+export default AuthModal;
