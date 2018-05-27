@@ -1,6 +1,7 @@
 import { auth } from 'firebase';
 
 import firebase from '../../lib/firebase';
+import { AuthTypes, FirebaseError, LoginInfo } from './types';
 
 export const verifyUser = () => dispatch => {
   dispatch(verifyingUser());
@@ -21,7 +22,7 @@ export const verifyingUser: () => VerifyingUserAction = () => ({
   type: 'SESSION.PENDING',
 });
 
-export const loginUser = (type: ('login'|'signup'), user) => dispatch => {
+export const loginUser = (type: AuthTypes, user: LoginInfo) => dispatch => {
   try {
     const { email, password } = user;
     if (type === 'login') {
@@ -45,11 +46,11 @@ export const loginSuccess: () => LoginSuccessAction = () => ({
 export interface LoginErrorAction {
   readonly type: 'SESSION.ERROR';
   readonly payload: {
-    error: string,
+    error: FirebaseError,
   };
 }
 
-export const sessionError: (err: string) => LoginErrorAction = error => ({
+export const sessionError: (err: FirebaseError) => LoginErrorAction = error => ({
   payload: {
     error,
   },

@@ -1,0 +1,19 @@
+body {
+  font-family: 'Heebo';
+}
+
+input {
+  border: none;
+  border-width: none;
+}
+
+input:focus {
+  border-bottom-width: 2px;
+  border-bottom-color: black;
+  outline: none;
+}
+
+input::placeholder {
+  font-family: 'Heebo';
+  color: #999;
+}
