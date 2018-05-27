@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import 'typeface-heebo';
 
 import { verifyUser } from 'state/Session/actions';
-import 'tachyons/css/tachyons.min.css';
+import 'tachyons';
 import configureStore from '../../store/configureStore';
 import Routes from '../Routes';
 import './App.css';

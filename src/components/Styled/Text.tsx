@@ -12,7 +12,7 @@ const Text: React.SFC<TextProps> = props => {
     fontFamily: 'Heebo',
   };
   const getClassName = () => {
-    const classes = ['f6', 'sans-serif', 'ma0', 'pa0', 'black-70'];
+    const classes = ['f6', 'sans-serif', 'black-70'];
     return [...classes, props.className].join(' ');
   };
   return(

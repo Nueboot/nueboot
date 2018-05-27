@@ -1,18 +1,22 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-import { AuthTypes } from 'state/Session/types';
+import { AuthTypes, LoginInfo } from 'state/Session/types';
 import { Text } from '../Styled';
 import AuthLogin from './AuthLogin';
 import AuthSignup from './AuthSignup';
 
 export interface StateProps {
   modal: string | null;
+  error?: any;
 }
 
 export interface DispatchProps {
   openModal(type: AuthTypes): void;
   closeModal(): void;
+  facebookLogin(): void;
+  googleLogin(): void;
+  login(user: LoginInfo): void;
 }
 
 export type AuthModalProps = StateProps & DispatchProps;
@@ -29,7 +33,7 @@ const modalStyle = {
     justifyContent: 'center',
   },
   content: {
-    padding: '40px',
+    padding: '20px',
     position: 'null', // to override default styles
     width: '550px',
   },
@@ -46,7 +50,13 @@ const AuthModal: React.SFC<AuthModalProps> = props => {
 
   const view =
     props.modal === 'login' ? (
-      <AuthLogin openModal={props.openModal} />
+      <AuthLogin
+        error={props.error}
+        login={props.login}
+        facebookLogin={props.facebookLogin}
+        googleLogin={props.googleLogin}
+        openModal={props.openModal}
+      />
     ) : (
       <AuthSignup openModal={props.openModal} />
     );

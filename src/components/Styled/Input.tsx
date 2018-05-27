@@ -4,7 +4,7 @@ export interface InterfaceProps {
   label?: string;
   type?: string;
   className?: string;
-  onChange?: () => void;
+  onChange?: (...props: any[]) => void;
 }
 
 const input: React.SFC<InterfaceProps> = props => {
@@ -17,6 +17,7 @@ const input: React.SFC<InterfaceProps> = props => {
       </label>
       <br />
       <input
+        onChange={props.onChange}
         placeholder={props.label}
         className="input w-100 pv2 mv2 bb b--light-gray"
         id={props.label}
