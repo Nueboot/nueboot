@@ -17,6 +17,7 @@ export interface DispatchProps {
   facebookLogin(): void;
   googleLogin(): void;
   login(user: LoginInfo): void;
+  signup(user: LoginInfo): void;
 }
 
 export type AuthModalProps = StateProps & DispatchProps;
@@ -58,7 +59,7 @@ const AuthModal: React.SFC<AuthModalProps> = props => {
         openModal={props.openModal}
       />
     ) : (
-      <AuthSignup openModal={props.openModal} />
+      <AuthSignup error={props.error} login={props.signup} openModal={props.openModal} />
     );
 
   return (

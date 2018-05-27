@@ -16,6 +16,7 @@ export const mapDispatchToProps = (dispatch): DispatchProps => ({
   facebookLogin: () => dispatch(loginWithFacebook()),
   googleLogin: () => dispatch(loginWithGoogle()),
   login: (user: LoginInfo) => dispatch(loginUser('login', user)),
+  signup: (user: LoginInfo) => dispatch(loginUser('signup', user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthModal);

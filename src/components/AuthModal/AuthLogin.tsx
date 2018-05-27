@@ -77,6 +77,7 @@ export default class AuthLogin extends React.Component<AuthLoginProps, State> {
       };
     });
   }
+
   private login = () => {
     if (this.validateInput() === false) {
       return;
@@ -97,15 +98,15 @@ export default class AuthLogin extends React.Component<AuthLoginProps, State> {
       }));
       return false;
     }
-    if (password.length === 0) {
-      this.setState(() => ({
-        validation: 'Password cannot be blank',
-      }));
-      return false;
-    }
     if (!this.validateEmail(email)) {
       this.setState(() => ({
         validation: 'Email is invalid',
+      }));
+      return false;
+    }
+    if (password.length === 0) {
+      this.setState(() => ({
+        validation: 'Password cannot be blank',
       }));
       return false;
     }
