@@ -7,7 +7,7 @@ export interface HeadingProps {
 
 const Heading = props => {
   const getClassName = () => {
-    const classes = 'f2 pa0'.split(' ');
+    const classes = 'fw9 f2 pa0'.split(' ');
     return  [...classes, ...props.className].join(' ');
   };
 

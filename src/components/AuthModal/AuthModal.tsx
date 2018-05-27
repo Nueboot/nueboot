@@ -29,9 +29,9 @@ const modalStyle = {
     justifyContent: 'center',
   },
   content: {
+    padding: '40px',
     position: 'null', // to override default styles
-    maxWidth: '560px',
-    minWidth: '400px',
+    width: '550px',
   },
 };
 

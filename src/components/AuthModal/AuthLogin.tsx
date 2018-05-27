@@ -26,8 +26,8 @@ export default class AuthLogin extends React.Component<AuthLoginProps, State> {
     return(
       <form>
         <Heading>Log In</Heading>
-        <Input className="mb2 w-100" label="Email" />
-        <Input className="mb2 w-100" label="Password" type="password" />
+        <Input className="mb3 w-100" label="Email" />
+        <Input className="mb3 w-100" label="Password" type="password" />
         <Button className="bg-green white bn hover-bg-dark-green mb3">Log In</Button>
         <FacebookButton />
         <GoogleButton />

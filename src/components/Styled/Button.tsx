@@ -17,10 +17,17 @@ const Button: React.SFC<ButtonProps> = props => {
     ${props.className}
   `;
 
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (props.onClick) {
+      props.onClick();
+    }
+  };
+
   return (
     <button
       className={className}
-      onClick={props.onClick}
+      onClick={onClick}
       style={styles}
     >
       {props.children}

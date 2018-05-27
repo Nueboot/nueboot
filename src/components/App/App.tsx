@@ -9,7 +9,6 @@ import 'tachyons/css/tachyons.min.css';
 import configureStore from '../../store/configureStore';
 import Routes from '../Routes';
 import './App.css';
-import './normalize.css';
 
 const history = createHistory();​
 const store = configureStore(history);

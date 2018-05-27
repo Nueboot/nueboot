@@ -8,19 +8,21 @@ export interface InterfaceProps {
 }
 
 const input: React.SFC<InterfaceProps> = props => {
-  const getClassName = () => {
-    const classes = 'input w-100 pa2';
-    return [...classes.split(' '), props.className].join(' ');
-  };
-
   const type = props.type ? props.type : 'text';
 
-  return(
-    <>
-      <label className="black-70" htmlFor="input">{props.label}</label>
+  return (
+    <div className={props.className}>
+      <label className="black-70" htmlFor={props.label}>
+        {props.label}
+      </label>
       <br />
-      <input className={getClassName()} id="input" type={type}/>
-    </>
+      <input
+        placeholder={props.label}
+        className="input w-100 pv2 mv2 bb b--light-gray"
+        id={props.label}
+        type={type}
+      />
+    </div>
   );
 };
 
