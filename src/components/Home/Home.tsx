@@ -1,7 +1,10 @@
 import React from 'react';
+import { Container, Heading } from '../Styled';
 
 const Home = () => (
-  <h1>Hi</h1>
+  <Container>
+    <Heading>Hi</Heading>
+  </Container>
 );
 
 export default Home;

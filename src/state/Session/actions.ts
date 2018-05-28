@@ -1,7 +1,7 @@
-import { auth } from 'firebase';
+import { auth, FirebaseError } from 'firebase';
 
 import firebase from '../../lib/firebase';
-import { AuthTypes, FirebaseError, LoginInfo } from './types';
+import { AuthTypes, LoginInfo } from './types';
 
 export const verifyUser = () => dispatch => {
   dispatch(verifyingUser());
@@ -89,5 +89,21 @@ export const oauthLogin = provider => dispatch => {
     dispatch(loginSuccess());
   }).catch(err => {
     dispatch(sessionError(err));
+  });
+};
+
+export interface ResetEmailSuccessAction {
+  readonly type: 'SESSION.RESET_EMAIL_SUCCESS';
+}
+
+export const resetEmailSuccess: () => ResetEmailSuccessAction = () => ({
+  type: 'SESSION.RESET_EMAIL_SUCCESS',
+});
+
+export const resetPassword = (email: string) => dispatch => {
+  firebase.auth().sendPasswordResetEmail(email).then(() => {
+    dispatch(resetEmailSuccess());
+  }).catch(error => {
+    dispatch(sessionError(error));
   });
 };

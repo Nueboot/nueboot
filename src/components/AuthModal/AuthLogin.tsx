@@ -1,6 +1,6 @@
 import { FirebaseError } from 'firebase';
 import React from 'react';
-import { AuthTypes, LoginInfo } from 'state/Session/types';
+import { LoginInfo } from 'state/Session/types';
 import { Button, Heading, Input, Text } from '../Styled';
 import { FacebookButton, GoogleButton } from './SocialButtons';
 
@@ -9,7 +9,7 @@ export interface AuthLoginProps {
   googleLogin(): void;
   facebookLogin(): void;
   login(user: LoginInfo): void;
-  openModal(type: AuthTypes): void;
+  openModal(type): void;
 }
 
 interface State {
@@ -18,6 +18,12 @@ interface State {
   readonly validation: string;
   [key: string]: string;
 }
+
+export const validateEmail = (email: string) => {
+  // tslint:disable-next-line:max-line-length
+  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+};
 
 export default class AuthLogin extends React.Component<AuthLoginProps, State> {
   public constructor(props: AuthLoginProps) {
@@ -60,12 +66,21 @@ export default class AuthLogin extends React.Component<AuthLoginProps, State> {
         <FacebookButton onClick={this.props.facebookLogin} />
         <GoogleButton onClick={this.props.googleLogin} />
         <br />
+        <Text>Forget your password? </Text>
+        <Text className="pointer link blue" onClick={this.resetPassword}>
+          Reset password
+        </Text>
+        <br />
         <Text>Need an account? </Text>
         <Text className="pointer link blue" onClick={this.onClick}>
           Sign Up
         </Text>
       </form>
     );
+  }
+
+  private resetPassword = () => {
+    this.props.openModal('reset');
   }
 
   private onInputChange = name => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,7 +113,7 @@ export default class AuthLogin extends React.Component<AuthLoginProps, State> {
       }));
       return false;
     }
-    if (!this.validateEmail(email)) {
+    if (!validateEmail(email)) {
       this.setState(() => ({
         validation: 'Email is invalid',
       }));
@@ -110,11 +125,6 @@ export default class AuthLogin extends React.Component<AuthLoginProps, State> {
       }));
       return false;
     }
-  }
-
-  private validateEmail(email: string) {
-    // tslint:disable-next-line:max-line-length
-    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+    return true;
   }
 }

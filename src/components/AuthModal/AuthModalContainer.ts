@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { closeModal, openModal } from 'state/Modal/actions';
-import { loginUser, loginWithFacebook, loginWithGoogle } from 'state/Session/actions';
+import { loginUser, loginWithFacebook, loginWithGoogle, resetPassword } from 'state/Session/actions';
 import { LoginInfo } from 'state/Session/types';
 import { State } from 'state/types';
 import AuthModal, { DispatchProps, StateProps } from './AuthModal';
@@ -17,6 +17,7 @@ export const mapDispatchToProps = (dispatch): DispatchProps => ({
   googleLogin: () => dispatch(loginWithGoogle()),
   login: (user: LoginInfo) => dispatch(loginUser('login', user)),
   signup: (user: LoginInfo) => dispatch(loginUser('signup', user)),
+  resetPassword: (email: string) => dispatch(resetPassword(email)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthModal);

@@ -1,3 +1,5 @@
 export interface ModalState {
-  modalType: string | null;
+  modalType: ModalTypes | null;
 }
+
+export type ModalTypes = 'login' | 'signup' | 'reset';
