@@ -1,11 +1,11 @@
-import { AuthTypes } from '../Session/types';
+import { ModalTypes } from './types';
 
 export interface OpenModalAction {
   readonly type: 'MODAL.OPEN_MODAL';
-  readonly payload: { type: AuthTypes };
+  readonly payload: { type: ModalTypes };
 }
 
-export type OpenModal = (type: AuthTypes) => OpenModalAction;
+export type OpenModal = (type: ModalTypes) => OpenModalAction;
 
 export const openModal: OpenModal = type => ({
   type: 'MODAL.OPEN_MODAL',

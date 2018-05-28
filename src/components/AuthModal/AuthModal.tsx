@@ -1,23 +1,26 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-import { AuthTypes, LoginInfo } from 'state/Session/types';
+import { ModalTypes } from 'state/Modal/types';
+import { LoginInfo } from 'state/Session/types';
 import { Text } from '../Styled';
 import AuthLogin from './AuthLogin';
+import AuthReset from './AuthReset';
 import AuthSignup from './AuthSignup';
 
 export interface StateProps {
-  modal: string | null;
+  modal: ModalTypes | null;
   error?: any;
 }
 
 export interface DispatchProps {
-  openModal(type: AuthTypes): void;
+  openModal(type: ModalTypes): void;
   closeModal(): void;
   facebookLogin(): void;
   googleLogin(): void;
   login(user: LoginInfo): void;
   signup(user: LoginInfo): void;
+  resetPassword(email: string): void;
 }
 
 export type AuthModalProps = StateProps & DispatchProps;
@@ -49,18 +52,24 @@ const AuthModal: React.SFC<AuthModalProps> = props => {
     props.closeModal();
   };
 
-  const view =
-    props.modal === 'login' ? (
-      <AuthLogin
-        error={props.error}
-        login={props.login}
-        facebookLogin={props.facebookLogin}
-        googleLogin={props.googleLogin}
-        openModal={props.openModal}
-      />
-    ) : (
-      <AuthSignup error={props.error} login={props.signup} openModal={props.openModal} />
-    );
+  const modalView = () => {
+    switch (props.modal) {
+      case 'login':
+        return (
+          <AuthLogin
+            error={props.error}
+            login={props.login}
+            facebookLogin={props.facebookLogin}
+            googleLogin={props.googleLogin}
+            openModal={props.openModal}
+          />
+        );
+      case 'signup':
+        return <AuthSignup error={props.error} login={props.signup} openModal={props.openModal} />;
+      case 'reset':
+        return <AuthReset error={props.error} reset={props.resetPassword} />;
+    }
+  };
 
   return (
     <ReactModal
@@ -71,7 +80,7 @@ const AuthModal: React.SFC<AuthModalProps> = props => {
       contentLabel="Login"
     >
       <Text className="pointer fr" onClick={closeModal}>X</Text>
-      {view}
+      {modalView()}
     </ReactModal>
   );
 };
