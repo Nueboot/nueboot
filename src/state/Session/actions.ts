@@ -1,7 +1,5 @@
 import { auth, FirebaseError } from 'firebase';
-
 import firebase from '../../lib/firebase';
-import { AuthTypes, LoginInfo } from './types';
 
 export const verifyUser = () => dispatch => {
   dispatch(verifyingUser());
@@ -21,19 +19,6 @@ export interface VerifyingUserAction {
 export const verifyingUser: () => VerifyingUserAction = () => ({
   type: 'SESSION.PENDING',
 });
-
-export const loginUser = (type: AuthTypes, user: LoginInfo) => dispatch => {
-  try {
-    const { email, password } = user;
-    if (type === 'login') {
-      firebase.auth().signInWithEmailAndPassword(email, password);
-    } else {
-      firebase.auth().createUserWithEmailAndPassword(email, password);
-    }
-  } catch (err) {
-    dispatch(sessionError(err.code));
-  }
-};
 
 export interface LoginSuccessAction {
   readonly type: 'SESSION.LOGIN_SUCCESS';
@@ -60,18 +45,18 @@ export const sessionError: (err: FirebaseError) => LoginErrorAction = error => (
 export const logoutUser = () => dispatch => {
   try {
     firebase.auth().signOut();
-    dispatch(signOutSuccess());
+    dispatch(logOutSuccess());
   } catch (err) {
     dispatch(sessionError(err.code));
   }
 };
 
-export interface SignOutSuccessAction {
-  readonly type: 'SESSION.SIGNOUT_SUCCESS';
+export interface LogOutSuccessAction {
+  readonly type: 'SESSION.LOGOUT_SUCCESS';
 }
 
-export const signOutSuccess: () => SignOutSuccessAction = () => ({
-  type: 'SESSION.SIGNOUT_SUCCESS',
+export const logOutSuccess: () => LogOutSuccessAction = () => ({
+  type: 'SESSION.LOGOUT_SUCCESS',
 });
 
 export const loginWithGoogle = () => dispatch => {
@@ -89,21 +74,5 @@ export const oauthLogin = provider => dispatch => {
     dispatch(loginSuccess());
   }).catch(err => {
     dispatch(sessionError(err));
-  });
-};
-
-export interface ResetEmailSuccessAction {
-  readonly type: 'SESSION.RESET_EMAIL_SUCCESS';
-}
-
-export const resetEmailSuccess: () => ResetEmailSuccessAction = () => ({
-  type: 'SESSION.RESET_EMAIL_SUCCESS',
-});
-
-export const resetPassword = (email: string) => dispatch => {
-  firebase.auth().sendPasswordResetEmail(email).then(() => {
-    dispatch(resetEmailSuccess());
-  }).catch(error => {
-    dispatch(sessionError(error));
   });
 };
