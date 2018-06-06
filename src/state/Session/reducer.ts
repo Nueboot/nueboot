@@ -2,7 +2,7 @@ import { CloseModalAction } from '../Modal/actions';
 import {
   LoginErrorAction,
   LoginSuccessAction,
-  SignOutSuccessAction,
+  LogOutSuccessAction,
   VerifyingUserAction,
 } from './actions';
 import { SessionState } from './types';
@@ -10,6 +10,7 @@ import { SessionState } from './types';
 export const initialSessionState = {
   loggedIn: false,
   pending: false,
+  error: null,
 };
 
 export interface OtherAction {
@@ -20,7 +21,7 @@ export const OtherAction: OtherAction = { type: '' };
 type SessionActions =
   | LoginErrorAction
   | LoginSuccessAction
-  | SignOutSuccessAction
+  | LogOutSuccessAction
   | VerifyingUserAction
   | OtherAction
   | CloseModalAction;
@@ -39,7 +40,7 @@ const SessionReducer = (
           pending: false,
         },
       );
-    case 'SESSION.SIGNOUT_SUCCESS':
+    case 'SESSION.LOGOUT_SUCCESS':
       return Object.assign(
         {},
         {
@@ -64,7 +65,7 @@ const SessionReducer = (
     case 'MODAL.CLOSE_MODAL':
       return {
         ...state,
-        error: '',
+        error: null,
       };
     default:
       return state;

@@ -1,12 +1,7 @@
+import { FirebaseError } from 'firebase';
+
 export interface SessionState {
-  error?: string;
+  error?: FirebaseError | null;
   loggedIn: boolean;
   pending: boolean;
 }
-
-export interface LoginInfo {
-  email: string;
-  password: string;
-}
-
-export type AuthTypes = 'login' | 'signup';

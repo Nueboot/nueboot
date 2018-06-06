@@ -2,6 +2,7 @@
 
 exports[`Session reducer with no action or state passed in returns the the default state 1`] = `
 Object {
+  "error": null,
   "loggedIn": false,
   "pending": false,
 }
