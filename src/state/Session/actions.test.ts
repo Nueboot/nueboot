@@ -8,16 +8,14 @@ import {
   LoginErrorAction,
   loginSuccess,
   LoginSuccessAction,
-  loginUser,
   loginWithFacebook,
   loginWithGoogle,
+  logOutSuccess,
+  LogOutSuccessAction,
   logoutUser,
   sessionError,
-  signOutSuccess,
-  SignOutSuccessAction,
   verifyUser,
 } from './actions';
-import { LoginInfo } from './types';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -41,7 +39,7 @@ describe('Session Actions', () => {
   describe('.sessionError', () => {
     let action: LoginErrorAction;
     beforeEach(() => {
-      action = sessionError('invalid email');
+      action = sessionError({ code: '1', message: '1', name: '1' });
     });
 
     it('creates the correct login success action type', () => {
@@ -49,44 +47,14 @@ describe('Session Actions', () => {
     });
   });
 
-  describe('.signOutSuccess', () => {
-    let action: SignOutSuccessAction;
+  describe('.logOutSuccess', () => {
+    let action: LogOutSuccessAction;
     beforeEach(() => {
-      action = signOutSuccess();
+      action = logOutSuccess();
     });
 
     it('creates the correct login success action type', () => {
-      expect(action.type).toBe('SESSION.SIGNOUT_SUCCESS');
-    });
-  });
-
-  describe('.loginUser', () => {
-    let user: LoginInfo;
-
-    beforeEach(() => {
-      user = {
-        email: 'email@example.com',
-        password: 'abc123',
-      };
-    });
-    describe('logging in', () => {
-      beforeEach(() => {
-        store.dispatch(loginUser('login', user));
-      });
-
-      it('creates the correct login success action type', () => {
-        expect(store.getActions()[0].type).toBe('SESSION.ERROR');
-      });
-    });
-
-    describe('signing up', () => {
-      beforeEach(() => {
-        store.dispatch(loginUser('signup', user));
-      });
-
-      it('creates the correct login success action type', () => {
-        expect(store.getActions()[0].type).toBe('SESSION.ERROR');
-      });
+      expect(action.type).toBe('SESSION.LOGOUT_SUCCESS');
     });
   });
 
@@ -138,7 +106,7 @@ describe('Session Actions', () => {
       });
 
       it('dispatches a logout action', () => {
-        expect(store.getActions()[0].type).toBe('SESSION.SIGNOUT_SUCCESS');
+        expect(store.getActions()[0].type).toBe('SESSION.LOGOUT_SUCCESS');
       });
     });
 

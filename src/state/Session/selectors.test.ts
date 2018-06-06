@@ -6,9 +6,16 @@ describe('Session selectors', () => {
   beforeEach(() => {
     state = {
       session: {
-        error: '',
+        error: {
+          name: 'Error',
+          code: 'Error',
+          message: 'Error',
+        },
         loggedIn: false,
         pending: false,
+      },
+      modal: {
+        modalType: null,
       },
     };
   });

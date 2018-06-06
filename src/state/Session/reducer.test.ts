@@ -1,14 +1,26 @@
-import { LoginErrorAction, LoginSuccessAction, SignOutSuccessAction, VerifyingUserAction } from './actions';
+import { FirebaseError } from 'firebase';
+import { CloseModalAction } from '../Modal/actions';
+import { LoginErrorAction, LoginSuccessAction, LogOutSuccessAction, VerifyingUserAction } from './actions';
 import sessionReducer from './reducer';
 import { SessionState } from './types';
 
 describe('Session reducer', () => {
   let state: SessionState;
   let newState: SessionState;
+  let error: FirebaseError;
 
   beforeEach(() => {
+    error = {
+      name:  'Error',
+      message:  'Error',
+      code:  'Error',
+    };
     state = {
-      error: '',
+      error: {
+        name:  'Error',
+        message:  'Error',
+        code:  'Error',
+      },
       loggedIn: false,
       pending: false,
     };
@@ -44,7 +56,7 @@ describe('Session reducer', () => {
     beforeEach(() => {
       action = {
         payload: {
-          error: 'Error',
+          error,
         },
         type: 'SESSION.ERROR',
       };
@@ -52,16 +64,16 @@ describe('Session reducer', () => {
       newState = sessionReducer(state, action);
     });
 
-    it('returns the new state with the error string', () => {
-      expect(newState.error).toBe('Error');
+    it('returns the new state with the error object', () => {
+      expect(newState.error).toEqual(error);
     });
   });
 
   describe('signout success', () => {
-    let action: SignOutSuccessAction;
+    let action: LogOutSuccessAction;
     beforeEach(() => {
       action = {
-        type: 'SESSION.SIGNOUT_SUCCESS',
+        type: 'SESSION.LOGOUT_SUCCESS',
       };
 
       newState = sessionReducer(state, action);
@@ -84,6 +96,25 @@ describe('Session reducer', () => {
 
     it('returns the new state with pending set to true', () => {
       expect(newState.pending).toBe(true);
+    });
+  });
+
+  describe('close modal', () => {
+    let action: CloseModalAction;
+    beforeEach(() => {
+      action = {
+        type: 'MODAL.CLOSE_MODAL',
+      };
+      state = {
+        ...state,
+        error,
+      };
+
+      newState = sessionReducer(state, action);
+    });
+
+    it('clears the errors when closing the modal', () => {
+      expect(newState.error).toBe(null);
     });
   });
 });
