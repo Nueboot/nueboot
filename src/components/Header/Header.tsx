@@ -45,12 +45,7 @@ const Header: React.SFC<HeaderProps> = props => {
     if (props.loggedIn) {
       return <Text style={style.links} className="fr pointer" onClick={logout}>Log Out</Text>;
     }
-    return (
-      <>
-        <Text style={style.links} className="fr pointer" onClick={handleClick('signup')}>Sign Up</Text>
-        <Text style={style.links} className="fr pointer mr4" onClick={handleClick('login')}>Log In</Text>
-      </>
-    );
+    return <Text style={style.links} className="fr pointer" onClick={handleClick('login')}>Log In</Text>;
   };
 
   return(

@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
-import { closeModal, openModal } from 'state/Modal/actions';
-import { loginUser, loginWithFacebook, loginWithGoogle, resetPassword } from 'state/Session/actions';
-import { LoginInfo } from 'state/Session/types';
+import { closeModal } from 'state/Modal/actions';
+import { loginWithFacebook, loginWithGoogle } from 'state/Session/actions';
 import { State } from 'state/types';
 import AuthModal, { DispatchProps, StateProps } from './AuthModal';
 
@@ -11,13 +10,9 @@ export const mapStateToProps = (state: State): StateProps => ({
 });
 
 export const mapDispatchToProps = (dispatch): DispatchProps => ({
-  openModal: type => dispatch(openModal(type)),
   closeModal: () => dispatch(closeModal()),
   facebookLogin: () => dispatch(loginWithFacebook()),
   googleLogin: () => dispatch(loginWithGoogle()),
-  login: (user: LoginInfo) => dispatch(loginUser('login', user)),
-  signup: (user: LoginInfo) => dispatch(loginUser('signup', user)),
-  resetPassword: (email: string) => dispatch(resetPassword(email)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthModal);
