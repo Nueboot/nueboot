@@ -4,16 +4,18 @@ import { BootInfo } from './types';
 
 export type FirebaseWrite = (path: string, data: {}) => Promise<any>;
 
-export const writeData: FirebaseWrite = (path, data) => {
-  return firebase.database().ref(path).set({
-    ...data,
-  });
-};
+// export const writeData: FirebaseWrite = (path, data) => {
+//   return firebase.database().ref(path).set({
+//     ...data,
+//   });
+// };
 
 export const updateData: FirebaseWrite = (path, data) => {
   return firebase.database().ref(path).transaction(currentData => {
     if (currentData !== null) {
       return { ...data };
+    } else {
+      throw new Error(`Boot at ${path} does not exist`);
     }
   });
 };
@@ -21,19 +23,17 @@ export const updateData: FirebaseWrite = (path, data) => {
 export type GetData = <T>(path: string) => Promise<T>;
 
 export const getData: GetData = <T>(path) => {
-  return new Promise(res => {
-    firebase.database().ref(path).once('value').then(snapshot => {
-      res(snapshot.val());
-    });
-  });
+  return firebase.database().ref(path).once('value')
+  .then(snapshot => snapshot.val());
 };
 
 export const currentUser = () => {
   return firebase.auth().currentUser;
 };
 
-export const setBoot = (bootInfo: BootInfo) => {
-  return writeData('/boots', bootInfo);
+export const addBoot = (bootInfo: BootInfo) => {
+  const newBoot = firebase.database().ref('/boots/').push();
+  return newBoot.set(bootInfo);
 };
 
 export const updateBoot = (id: number, data: Partial<BootInfo>) => {
