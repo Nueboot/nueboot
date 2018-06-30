@@ -2,6 +2,7 @@
 
 exports[`Home renders as expected 1`] = `
 <Container>
+  <Connect(Header) />
   <Heading>
     Hi
   </Heading>
