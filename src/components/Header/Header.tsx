@@ -1,10 +1,10 @@
 import React from 'react';
-import { AuthTypes } from 'state/Session/types';
+import { ModalTypes } from 'state/Modal/types';
 
 import { Container, Logo, Text } from '../Styled';
 
 export interface DispatchProps {
-  readonly openModal: (type: AuthTypes) => void;
+  readonly openModal: (type: ModalTypes) => void;
   logout(): void;
 }
 
@@ -30,7 +30,7 @@ const style: Style = {
 };
 
 const Header: React.SFC<HeaderProps> = props => {
-  const handleClick = (type: AuthTypes) => () => {
+  const handleClick = (type: ModalTypes) => () => {
     props.openModal(type);
   };
 
