@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home renders as expected 1`] = `
-<Container>
+<React.Fragment>
   <Connect(Header) />
-  <Heading>
-    Hi
-  </Heading>
-</Container>
+  <Container>
+    <Heading>
+      Hi
+    </Heading>
+  </Container>
+</React.Fragment>
 `;
