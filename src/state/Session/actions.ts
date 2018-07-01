@@ -5,9 +5,9 @@ export const verifyUser = () => dispatch => {
   dispatch(verifyingUser());
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-      dispatch(loginSuccess());
+      dispatch(loginSuccess(user));
     } else {
-      dispatch(logoutUser());
+      dispatch(logOutSuccess());
     }
   });
 };
@@ -22,10 +22,16 @@ export const verifyingUser: () => VerifyingUserAction = () => ({
 
 export interface LoginSuccessAction {
   readonly type: 'SESSION.LOGIN_SUCCESS';
+  readonly payload: {
+    userInfo: {},
+  };
 }
 
-export const loginSuccess: () => LoginSuccessAction = () => ({
+export const loginSuccess: (userInfo: {}) => LoginSuccessAction = userInfo => ({
   type: 'SESSION.LOGIN_SUCCESS',
+  payload: {
+    userInfo,
+  },
 });
 
 export interface LoginErrorAction {
@@ -45,7 +51,6 @@ export const sessionError: (err: FirebaseError) => LoginErrorAction = error => (
 export const logoutUser = () => dispatch => {
   try {
     firebase.auth().signOut();
-    dispatch(logOutSuccess());
   } catch (err) {
     dispatch(sessionError(err.code));
   }
@@ -70,9 +75,7 @@ export const loginWithFacebook = () => dispatch => {
 };
 
 export const oauthLogin = provider => dispatch => {
-  firebase.auth().signInWithPopup(provider).then(res => {
-    dispatch(loginSuccess());
-  }).catch(err => {
+  firebase.auth().signInWithPopup(provider).catch(err => {
     dispatch(sessionError(err));
   });
 };

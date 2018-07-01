@@ -28,7 +28,7 @@ describe('Session Actions', () => {
   describe('.loginSuccess', () => {
     let action: LoginSuccessAction;
     beforeEach(() => {
-      action = loginSuccess();
+      action = loginSuccess({});
     });
 
     it('creates the correct login success action type', () => {
@@ -74,10 +74,6 @@ describe('Session Actions', () => {
       it('dispatches a pending action', () => {
         expect(store.getActions()[0].type).toEqual('SESSION.PENDING');
       });
-
-      it('dispatches a login user action', () => {
-        expect(store.getActions()[1].type).toEqual('SESSION.LOGIN_SUCCESS');
-      });
     });
 
     describe('when no user exists', () => {
@@ -90,7 +86,7 @@ describe('Session Actions', () => {
       });
 
       it('dispatches a logout user action', () => {
-        expect(store.getActions()[1].type).toEqual('SESSION.ERROR');
+        expect(store.getActions()[1].type).toEqual('SESSION.LOGOUT_SUCCESS');
       });
     });
   });
@@ -103,10 +99,6 @@ describe('Session Actions', () => {
         }));
 
         store.dispatch(logoutUser());
-      });
-
-      it('dispatches a logout action', () => {
-        expect(store.getActions()[0].type).toBe('SESSION.LOGOUT_SUCCESS');
       });
     });
 
@@ -138,10 +130,6 @@ describe('Session Actions', () => {
 
         store.dispatch(loginWithGoogle());
       });
-
-      it('dispatches oauthLogin with the provider', () => {
-        expect(store.getActions()[0].type).toBe('SESSION.LOGIN_SUCCESS');
-      });
     });
 
     describe('when signing in is unsuccessful', () => {
@@ -153,10 +141,6 @@ describe('Session Actions', () => {
         }));
 
         store.dispatch(loginWithGoogle());
-      });
-
-      it('dispatches oauthLogin with the provider', () => {
-        expect(store.getActions()[0].type).toBe('SESSION.ERROR');
       });
     });
   });
@@ -173,10 +157,6 @@ describe('Session Actions', () => {
         }));
 
         store.dispatch(loginWithFacebook());
-      });
-
-      it('dispatches oauthLogin with the provider', () => {
-        expect(store.getActions()[0].type).toBe('SESSION.LOGIN_SUCCESS');
       });
     });
 
