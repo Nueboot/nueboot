@@ -41,6 +41,9 @@ describe('Session reducer', () => {
     beforeEach(() => {
       action = {
         type: 'SESSION.LOGIN_SUCCESS',
+        payload: {
+          userInfo: {},
+        },
       };
 
       newState = sessionReducer(state, action);

@@ -11,6 +11,7 @@ export const initialSessionState = {
   loggedIn: false,
   pending: false,
   error: null,
+  user: {},
 };
 
 export interface OtherAction {
@@ -38,6 +39,7 @@ const SessionReducer = (
           ...state,
           loggedIn: true,
           pending: false,
+          user: action.payload.userInfo,
         },
       );
     case 'SESSION.LOGOUT_SUCCESS':
