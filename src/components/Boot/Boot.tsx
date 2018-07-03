@@ -14,16 +14,17 @@ export interface DispatchProps {
   getBoot(): void;
 }
 export interface StateProps {
-  boot: BootInfo;
+  boot?: BootInfo;
   loading: boolean;
 }
 
 export type BootProps = Props & DispatchProps & StateProps;
 
 export default class Boot extends React.Component<BootProps> {
-
   public componentDidMount() {
-    this.props.getBoot();
+    if (!this.props.boot) {
+      this.props.getBoot();
+    }
   }
 
   public render() {

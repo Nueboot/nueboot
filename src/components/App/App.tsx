@@ -12,6 +12,7 @@ import './App.css';
 const history = createHistory();​
 const store = configureStore(history);
 
+(window as any).store = store;
 store.dispatch(verifyUser());
 
 export default class App extends Component {

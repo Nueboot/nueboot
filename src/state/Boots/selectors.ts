@@ -9,4 +9,4 @@ export const byBrand = (state: State, brand: Brands) => {
   return allBoots(state).filter(boot => boot.brand === brand);
 };
 
-export const bootStatus = (state: State) => state.boots.loading;
+export const bootLoading = (state: State) => state.boots.loading;
