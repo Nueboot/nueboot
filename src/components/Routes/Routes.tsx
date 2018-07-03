@@ -13,7 +13,7 @@ const Routes = () => (
     <Container>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/boot/:bootId" component={Boot} />
+        <Route path="/boots/:bootId" component={Boot} />
         <Redirect to="/" />
       </Switch>
     </Container>
