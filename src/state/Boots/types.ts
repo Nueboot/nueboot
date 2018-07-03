@@ -1,6 +1,6 @@
 import { BootInfo } from 'api/types';
 
 export interface BootsState {
-  readonly boots: BootInfo[];
+  readonly byId: BootInfo[];
   readonly loading: boolean;
 }
