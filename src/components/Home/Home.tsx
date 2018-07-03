@@ -1,13 +1,9 @@
 import React from 'react';
-import Header from '../Header';
-import { Container, Heading } from '../Styled';
+import { Heading } from '../Styled';
 
 const Home = () => (
   <>
-    <Header/>
-    <Container>
-      <Heading>Hi</Heading>
-    </Container>
+    <Heading>Hi</Heading>
   </>
 );
 

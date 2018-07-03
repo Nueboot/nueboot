@@ -2,11 +2,8 @@
 
 exports[`Home renders as expected 1`] = `
 <React.Fragment>
-  <Connect(Header) />
-  <Container>
-    <Heading>
-      Hi
-    </Heading>
-  </Container>
+  <Heading>
+    Hi
+  </Heading>
 </React.Fragment>
 `;
