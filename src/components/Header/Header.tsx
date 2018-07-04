@@ -49,8 +49,8 @@ const Header: React.SFC<HeaderProps> = props => {
   };
 
   return(
-    <div className="header mv4 cf">
-      <Container>
+    <div className="header">
+      <Container className="mv4 cf">
         <div className="fl" style={style.logo}>
           <Logo />
         </div>

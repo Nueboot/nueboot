@@ -6,13 +6,8 @@ export interface HeadingProps {
 }
 
 const Heading = props => {
-  const getClassName = () => {
-    const classes = 'fw9 f2 pa0'.split(' ');
-    return  [...classes, ...props.className].join(' ');
-  };
-
   return(
-    <h1 style={props.style} className={getClassName()}>{props.children}</h1>
+    <h1 style={props.style} className={`${props.className} ma0 mb2 fw9 f2 pa0 black-90`}>{props.children}</h1>
   );
 };
 

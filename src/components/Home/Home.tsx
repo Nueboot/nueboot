@@ -1,10 +1,10 @@
 import React from 'react';
-import { Heading } from '../Styled';
+import { Container, Heading } from '../Styled';
 
 const Home = () => (
-  <>
+  <Container className="home">
     <Heading>Hi</Heading>
-  </>
+  </Container>
 );
 
 export default Home;
