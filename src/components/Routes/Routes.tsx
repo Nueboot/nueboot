@@ -4,23 +4,24 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import AuthModal from '../AuthModal';
 import Boot from '../Boot';
 import Boots from '../Boots';
+import Footer from '../Footer';
 import Header from '../Header';
 import Home from '../Home';
-import { Container } from '../Styled';
 
 const Routes = () => (
-  <>
+  <div className="app flex flex-column">
     <Header />
-    <Container>
+    <div className="content">
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/boots" component={Boots} />
         <Route exact path="/boots/:bootId" component={Boot} />
         <Redirect to="/" />
       </Switch>
-    </Container>
+    </div>
+    <Footer />
     <AuthModal />
-  </>
+  </div>
 );
 
 export default Routes;

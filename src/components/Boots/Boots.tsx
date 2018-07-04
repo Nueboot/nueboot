@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BootInfo } from '../../api/types';
-import { Heading, Text } from '../Styled';
+import { Container, Heading, Text } from '../Styled';
 import Spinner from '../Styled/Spinner';
 
 export interface StateProps {
@@ -18,6 +18,7 @@ export type BootsProps = StateProps & DispatchProps;
 const style: React.CSSProperties = {
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
+  columnGap: '1rem',
 };
 
 export default class Boots extends React.Component<BootsProps> {
@@ -33,14 +34,14 @@ export default class Boots extends React.Component<BootsProps> {
       return null;
     }
     return (
-      <>
+      <Container className="boots">
         <Heading>Boots</Heading>
         <div style={style} className="boots">
           {Object.keys(this.props.boots).map(key => {
             const boot: BootInfo = this.props.boots[key];
             return(
               <div className="boot-list-item mv1" key={boot.model}>
-                <Link to={`boots/${key}`} className="link animate-bg hover-bg-green ph1">
+                <Link to={`boots/${key}`} className="link animate-bg underline-hover hover-green">
                   <Text className="b">{boot.brand} </Text>
                   <Text>{boot.model}</Text>
                 </Link>
@@ -48,7 +49,7 @@ export default class Boots extends React.Component<BootsProps> {
             );
           })}
         </div>
-      </>
+      </Container>
     );
   }
 }

@@ -1,7 +1,7 @@
 import { BootInfo } from 'api/types';
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Heading } from '../Styled';
+import { Container, Heading, Text } from '../Styled';
 import Spinner from '../Styled/Spinner';
 
 export interface MatchParams {
@@ -35,10 +35,10 @@ export default class Boot extends React.Component<BootProps> {
      return null;
     }
     return(
-      <div>
+      <Container>
         <Heading>{this.props.boot.brand}</Heading>
-        <Heading>{this.props.boot.model}</Heading>
-      </div>
+        <Text>{this.props.boot.model}</Text>
+      </Container>
     );
   }
 }

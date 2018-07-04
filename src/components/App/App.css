@@ -18,3 +18,16 @@ input::placeholder {
   font-family: 'Heebo';
   color: #999;
 }
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.app {
+  align-content: center;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
