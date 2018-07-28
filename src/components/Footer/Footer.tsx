@@ -2,9 +2,9 @@ import React from 'react';
 import { Container, Text } from '../Styled';
 
 const Footer: React.SFC = () => (
-  <div className="footer bg-black-90 mt5 pt4 pb5">
+  <div className="footer bg-near-white mt5 pt4 pb5">
     <Container>
-      <Text className="white">Footer</Text>
+      <Text>Footer</Text>
     </Container>
   </div>
 );
