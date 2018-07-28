@@ -1,19 +1,13 @@
-import createHistory from 'history/createBrowserHistory';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
-import { verifyUser } from 'state/Session/actions';
 import 'tachyons';
-import configureStore from '../../store/configureStore';
+import BootstrapApp, { history, store } from '../Bootstrap';
 import Routes from '../Routes';
 import './App.css';
 
-const history = createHistory();​
-const store = configureStore(history);
-
-(window as any).store = store;
-store.dispatch(verifyUser());
+BootstrapApp();
 
 export default class App extends Component {
   public render() {

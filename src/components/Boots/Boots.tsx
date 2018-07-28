@@ -9,11 +9,7 @@ export interface StateProps {
   loading: boolean;
 }
 
-export interface DispatchProps {
-  getBoots(): void;
-}
-
-export type BootsProps = StateProps & DispatchProps;
+export type BootsProps = StateProps;
 
 const style: React.CSSProperties = {
   display: 'grid',
@@ -22,10 +18,6 @@ const style: React.CSSProperties = {
 };
 
 export default class Boots extends React.Component<BootsProps> {
-  public componentDidMount() {
-    this.props.getBoots();
-  }
-
   public render() {
     if (this.props.loading) {
       return <Spinner />;
