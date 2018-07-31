@@ -6,9 +6,9 @@ export interface ContainerProps {
 }
 
 const Container: React.SFC<ContainerProps> = props => {
-  const classes = props.className ? `${props.className}` : '';
+  const classes = props.className ? `${props.className} ` : '';
   return(
-    <div style={props.style} className={`${classes} container mw8 ph3 ph0-l center`}>
+    <div style={props.style} className={`${classes}container mw8 ph3 ph0-l center`}>
       {props.children}
     </div>
   );

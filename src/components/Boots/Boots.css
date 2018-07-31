@@ -1,0 +1,11 @@
+.boots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+}
+
+@media (max-width: 40rem) { 
+  .boots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
