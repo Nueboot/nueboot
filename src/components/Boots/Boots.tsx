@@ -4,18 +4,14 @@ import { BootInfo } from '../../api/types';
 import { Container, Heading, Text } from '../Styled';
 import Spinner from '../Styled/Spinner';
 
+import './Boots.css';
+
 export interface StateProps {
   boots: BootInfo[];
   loading: boolean;
 }
 
 export type BootsProps = StateProps;
-
-const style: React.CSSProperties = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  columnGap: '1rem',
-};
 
 export default class Boots extends React.Component<BootsProps> {
   public render() {
@@ -26,9 +22,9 @@ export default class Boots extends React.Component<BootsProps> {
       return null;
     }
     return (
-      <Container className="boots">
+      <Container>
         <Heading>Boots</Heading>
-        <div style={style} className="boots">
+        <div className="boots">
           {Object.keys(this.props.boots).map(key => {
             const boot: BootInfo = this.props.boots[key];
             return(
