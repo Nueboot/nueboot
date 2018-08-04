@@ -56,7 +56,12 @@ export default class Boot extends React.Component<BootProps> {
             <Subheading>Rating</Subheading>
             <Rating stars={5} />
 
-            <BootStats boot={this.props.boot} />
+            <BootStats
+              weight={this.props.boot.weight}
+              material={this.props.boot.material}
+              releaseDate={this.props.boot.releaseDate}
+              msrp={this.props.boot.msrp}
+            />
           </div>
         </div>
       </Container>
