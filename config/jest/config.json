@@ -9,6 +9,9 @@
     }
   },
   "moduleFileExtensions": ["ts", "tsx", "json", "js", "jsx"],
+  "moduleNameMapper": {
+    "\\.(css|less)$": "identity-obj-proxy"
+  },
   "modulePathIgnorePatterns": ["<rootDir>/coverage, <rootDir>/dist"],
   "modulePaths": ["<rootDir>/src"],
   "rootDir": "../..",

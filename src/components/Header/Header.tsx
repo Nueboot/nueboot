@@ -2,6 +2,7 @@ import React from 'react';
 import { ModalTypes } from 'state/Modal/types';
 
 import { Container, Logo, Text } from '../Styled';
+import { Styles } from '../types';
 
 export interface DispatchProps {
   readonly openModal: (type: ModalTypes) => void;
@@ -15,12 +16,7 @@ export interface StateProps {
 
 export type HeaderProps = DispatchProps & StateProps;
 
-interface Style {
-  logo: React.CSSProperties;
-  links: React.CSSProperties;
-}
-
-const style: Style = {
+const style: Styles = {
   logo: {
     width: '105px',
   },

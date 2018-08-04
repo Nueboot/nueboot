@@ -1,8 +1,12 @@
 import { BootInfo } from 'api/types';
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Container, Heading, Text } from '../Styled';
-import Spinner from '../Styled/Spinner';
+
+import Rating from '../Rating';
+import { Container, Heading, Image, Spinner, Subheading } from '../Styled';
+
+import './Boot.css';
+import BootStats from './BootStats';
 
 export interface MatchParams {
   bootId: string;
@@ -36,8 +40,30 @@ export default class Boot extends React.Component<BootProps> {
     }
     return(
       <Container>
-        <Heading>{this.props.boot.brand}</Heading>
-        <Text>{this.props.boot.model}</Text>
+        <div className="boot-container">
+          <div className="column-one">
+            <div className="boot-image-container h3">
+              <Image url="http://via.placeholder.com/300x200" />
+            </div>
+          </div>
+          <div className="column-two">
+            <Subheading>Brand</Subheading>
+            <Heading className="mb3">{this.props.boot.brand}</Heading>
+
+            <Subheading>Model</Subheading>
+            <Heading className="mb3">{this.props.boot.model}</Heading>
+
+            <Subheading>Rating</Subheading>
+            <Rating stars={5} />
+
+            <BootStats
+              weight={this.props.boot.weight}
+              material={this.props.boot.material}
+              releaseDate={this.props.boot.releaseDate}
+              msrp={this.props.boot.msrp}
+            />
+          </div>
+        </div>
       </Container>
     );
   }
