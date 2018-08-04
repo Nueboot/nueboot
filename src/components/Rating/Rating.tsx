@@ -12,8 +12,8 @@ const Rating: React.SFC<RatingProps> = ({ stars = 0 }) => {
   return (
     <div className="boot-rating">
       <div className="stars di mr3">
-        {starsArray.map(star => (
-          <span className="yellow f3">★</span>
+        {starsArray.map((star, i) => (
+          <span key={`star${i}`} className="yellow f3">★</span>
         ))}
       </div>
       <span className="f4 b">{`${stars}.${decimal(stars)}`}</span>

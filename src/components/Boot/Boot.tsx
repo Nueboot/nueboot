@@ -6,6 +6,7 @@ import Rating from '../Rating';
 import { Container, Heading, Image, Spinner, Subheading } from '../Styled';
 
 import './Boot.css';
+import BootStats from './BootStats';
 
 export interface MatchParams {
   bootId: string;
@@ -54,6 +55,8 @@ export default class Boot extends React.Component<BootProps> {
 
             <Subheading>Rating</Subheading>
             <Rating stars={5} />
+
+            <BootStats boot={this.props.boot} />
           </div>
         </div>
       </Container>
