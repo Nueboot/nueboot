@@ -42,7 +42,7 @@ export default class Boot extends React.Component<BootProps> {
       <Container>
         <div className="boot-container">
           <div className="column-one">
-            <div className="boot-image-container h3">
+            <div className="boot-image-container">
               <Image url="http://via.placeholder.com/300x200" />
             </div>
           </div>
