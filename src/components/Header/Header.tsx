@@ -2,7 +2,7 @@ import React from 'react';
 import { ModalTypes } from 'state/Modal/types';
 
 import { Container, Logo, Text } from '../Styled';
-import { Styles } from '../types';
+import { NavigationLink } from '../Styled';
 
 export interface DispatchProps {
   readonly openModal: (type: ModalTypes) => void;
@@ -15,15 +15,6 @@ export interface StateProps {
 }
 
 export type HeaderProps = DispatchProps & StateProps;
-
-const style: Styles = {
-  logo: {
-    width: '105px',
-  },
-  links: {
-    fontWeight: 500,
-  },
-};
 
 const Header: React.SFC<HeaderProps> = props => {
   const handleClick = (type: ModalTypes) => () => {
@@ -39,16 +30,17 @@ const Header: React.SFC<HeaderProps> = props => {
       return null;
     }
     if (props.loggedIn) {
-      return <Text style={style.links} className="fr pointer" onClick={logout}>Log Out</Text>;
+      return <Text className="fr pointer mt1 fw5" onClick={logout}>Log Out</Text>;
     }
-    return <Text style={style.links} className="fr pointer" onClick={handleClick('login')}>Log In</Text>;
+    return <Text className="fr pointer mt1 fw5" onClick={handleClick('login')}>Log In</Text>;
   };
 
   return(
     <div className="header">
       <Container className="mv4 cf">
-        <div className="fl" style={style.logo}>
+        <div className="fl">
           <Logo />
+          <NavigationLink to="/boots" className="ml4 mt1">Boots</NavigationLink>
         </div>
         {auth()}
       </Container>

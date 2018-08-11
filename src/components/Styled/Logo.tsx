@@ -12,9 +12,9 @@ const Logo = (props: LogoProps) => {
   const height = 38;
   const viewBox = `0 0 ${width} ${height}`;
   return (
-    <Link to="/">
+    <Link to="/" className="dib">
     <svg
-      width="100%"
+      width={105}
       viewBox={viewBox}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const Logo = (props: LogoProps) => {
         fill={color}
       />
     </svg>
-    </Link>
+    </Link >
   );
 };
 
