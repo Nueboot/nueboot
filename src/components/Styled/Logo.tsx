@@ -14,7 +14,7 @@ const Logo = (props: LogoProps) => {
   return (
     <Link to="/">
     <svg
-      width="100%"
+      className="w4"
       viewBox={viewBox}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const Logo = (props: LogoProps) => {
         fill={color}
       />
     </svg>
-    </Link>
+    </Link >
   );
 };
 
