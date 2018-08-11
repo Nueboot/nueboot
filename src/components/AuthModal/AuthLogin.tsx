@@ -10,15 +10,13 @@ export interface AuthLoginProps {
 }
 
 const AuthLogin: React.SFC<AuthLoginProps> = props => {
-  return(
-    <form>
-        <Heading>Log In</Heading>
-        {props.error && (
-          <Text className="red mb3 db">{props.error.message}</Text>
-        )}
-        <FacebookButton onClick={props.facebookLogin} />
-        <GoogleButton onClick={props.googleLogin} />
-      </form>
+  return (
+    <div>
+      <Heading className="mt3 mb4">Log In</Heading>
+      {props.error && <Text className="red mb3 db">{props.error.message}</Text>}
+      <FacebookButton onClick={props.facebookLogin} />
+      <GoogleButton onClick={props.googleLogin} />
+    </div>
   );
 };
 
