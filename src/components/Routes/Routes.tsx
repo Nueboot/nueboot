@@ -4,7 +4,6 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import AuthModal from '../AuthModal';
 import Boot from '../Boot';
 import Boots from '../Boots';
-import Footer from '../Footer';
 import Header from '../Header';
 import Home from '../Home';
 
@@ -19,7 +18,6 @@ const Routes = () => (
         <Redirect to="/" />
       </Switch>
     </div>
-    <Footer />
     <AuthModal />
   </div>
 );
