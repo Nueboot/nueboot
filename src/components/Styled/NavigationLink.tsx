@@ -10,8 +10,8 @@ interface NavigationLinkProps {
 
 const NavigationLink: React.SFC<NavigationLinkProps> = props => {
   return(
-    <Link to={props.to}>
-      <Text className={`fr pointer ${props.className}`}>
+    <Link className="no-underline link" to={props.to}>
+      <Text className={`fw5 pointer ${props.className}`}>
         {props.children}
       </Text>
     </Link>

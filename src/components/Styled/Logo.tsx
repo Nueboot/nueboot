@@ -12,9 +12,9 @@ const Logo = (props: LogoProps) => {
   const height = 38;
   const viewBox = `0 0 ${width} ${height}`;
   return (
-    <Link to="/" className="dib">
+    <Link to="/">
     <svg
-      width={105}
+      className="w4"
       viewBox={viewBox}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
