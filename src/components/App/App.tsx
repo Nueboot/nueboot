@@ -9,14 +9,10 @@ import './App.css';
 
 BootstrapApp();
 
-export default class App extends Component {
-  public render() {
-    return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <Routes />
-        </ConnectedRouter>
-      </Provider>
-    );
-  }
-}
+export default () => (
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Routes />
+    </ConnectedRouter>
+  </Provider>
+);
