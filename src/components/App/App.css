@@ -43,5 +43,5 @@ html, body, #root {
   align-content: center;
   min-height: 100%;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr;
 }

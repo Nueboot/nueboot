@@ -2,7 +2,7 @@ import React from 'react';
 import { ModalTypes } from 'state/Modal/types';
 
 import { Container, Logo, Text } from '../Styled';
-import { Styles } from '../types';
+import { NavigationLink } from '../Styled';
 
 export interface DispatchProps {
   readonly openModal: (type: ModalTypes) => void;
@@ -16,15 +16,6 @@ export interface StateProps {
 
 export type HeaderProps = DispatchProps & StateProps;
 
-const style: Styles = {
-  logo: {
-    width: '105px',
-  },
-  links: {
-    fontWeight: 500,
-  },
-};
-
 const Header: React.SFC<HeaderProps> = props => {
   const handleClick = (type: ModalTypes) => () => {
     props.openModal(type);
@@ -35,20 +26,24 @@ const Header: React.SFC<HeaderProps> = props => {
   };
 
   const auth = () => {
+    const classList = 'pointer fw5';
     if (props.pending) {
       return null;
     }
     if (props.loggedIn) {
-      return <Text style={style.links} className="fr pointer" onClick={logout}>Log Out</Text>;
+      return <Text className={classList} onClick={logout}>Log Out</Text>;
     }
-    return <Text style={style.links} className="fr pointer" onClick={handleClick('login')}>Log In</Text>;
+    return <Text className={classList} onClick={handleClick('login')}>Log In</Text>;
   };
 
   return(
     <div className="header">
-      <Container className="mv4 cf">
-        <div className="fl" style={style.logo}>
+      <Container className="mv4 flex justify-between items-center">
+        <div className="flex items-center">
           <Logo />
+          <NavigationLink to="/boots" className="link no-underline ml4">
+            <Text className="fw5 pointer">Boots</Text>
+          </NavigationLink>
         </div>
         {auth()}
       </Container>

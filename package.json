@@ -1,7 +1,7 @@
 {
   "name": "nueboot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.tsx",
   "author": "Nueboot",
   "description": "Nueboot",
   "license": "MIT",
@@ -52,7 +52,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
     "parcel-bundler": "^1.7.1",
-    "parcel-plugin-clean-dist": "0.0.6",
+    "parcel-plugin-clean-dist": "^0.0.6",
     "parcel-plugin-typescript": "^0.7.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-mock-store": "^1.5.1",
