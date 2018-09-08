@@ -3,6 +3,7 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router';
 
 import Rating from '../Rating';
+import Reviews from '../Reviews';
 import { Container, Heading, Image, Spinner, Subheading } from '../Styled';
 
 import './Boot.css';
@@ -36,17 +37,16 @@ export default class Boot extends React.Component<BootProps> {
       return <Spinner />;
     }
     if (!this.props.boot) {
-     return null;
+      return null;
     }
-    return(
+    return (
       <Container>
         <div className="boot-container">
-          <div className="column-one">
-            <div className="boot-image-container">
-              <Image url="http://via.placeholder.com/300x200" />
-            </div>
+          <div className="boot-image">
+            <Image url="http://via.placeholder.com/300x200" />
           </div>
-          <div className="column-two">
+          <Reviews id={this.props.match.params.bootId} />
+          <div className="boot-info">
             <Subheading>Brand</Subheading>
             <Heading className="mb3">{this.props.boot.brand}</Heading>
 
@@ -55,14 +55,14 @@ export default class Boot extends React.Component<BootProps> {
 
             <Subheading>Rating</Subheading>
             <Rating stars={5} />
-
-            <BootStats
-              weight={this.props.boot.weight}
-              material={this.props.boot.material}
-              releaseDate={this.props.boot.releaseDate}
-              msrp={this.props.boot.msrp}
-            />
           </div>
+
+          <BootStats
+            weight={this.props.boot.weight}
+            material={this.props.boot.material}
+            releaseDate={this.props.boot.releaseDate}
+            msrp={this.props.boot.msrp}
+          />
         </div>
       </Container>
     );
