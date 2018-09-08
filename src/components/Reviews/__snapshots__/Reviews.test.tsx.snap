@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reviews renders correctly 1`] = `
+<section
+  className="reviews"
+>
+  <div
+    className="flex justify-between"
+  >
+    <Heading
+      className="ttu dib"
+      size={2}
+    >
+      Reviews
+    </Heading>
+    <Button
+      className="bg-green white"
+    >
+      New Review
+    </Button>
+  </div>
+</section>
+`;
