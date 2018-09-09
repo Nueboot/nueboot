@@ -1,5 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 
-export default props => (
-  <h4 className="f6 ttu tracked gray ma0">{props.children}</h4>
+const Heading = styled.h4`
+
+`;
+
+const Subheading = props => (
+  <Heading className="f6 ttu tracked gray ma0">{props.children}</Heading>
 );
+
+export default Subheading;

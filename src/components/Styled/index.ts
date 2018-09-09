@@ -6,4 +6,3 @@ export { default as Subheading  } from './Subheading';
 export { default as Input  } from './Input';
 export { default as Spinner } from './Spinner';
 export { default as Image } from './Image';
-export { default as NavigationLink } from './NavigationLink';

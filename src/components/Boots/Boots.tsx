@@ -30,7 +30,7 @@ export default class Boots extends React.Component<BootsProps> {
             const boot: BootInfo = this.props.boots[key];
             return(
               <div className="boot-list-item mv1" key={boot.model}>
-                <Link to={`boots/${key}`} className="link animate-bg underline-hover hover-green">
+                <Link to={`boots/${key}`} className="link hover-blue black">
                   <Text className="b">{boot.brand} </Text>
                   <Text>{boot.model}</Text>
                 </Link>
