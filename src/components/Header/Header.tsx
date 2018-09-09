@@ -1,8 +1,8 @@
 import React from 'react';
 import { ModalTypes } from 'state/Modal/types';
 
-import { Container, Logo, Text } from '../Styled';
-import { NavigationLink } from '../Styled';
+import { Container, Logo, NavigationLink } from '../Styled';
+import Text from '../Styled/Text';
 
 export interface DispatchProps {
   readonly openModal: (type: ModalTypes) => void;

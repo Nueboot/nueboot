@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BootInfo } from '../../api/types';
-import { Container, Heading, Text } from '../Styled';
+import { Container, Heading } from '../Styled';
 import Spinner from '../Styled/Spinner';
+import Text from '../Styled/Text';
 
 import './Boots.css';
 
