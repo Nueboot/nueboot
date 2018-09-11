@@ -7,7 +7,7 @@ exports[`Header renders correctly 1`] = `
   <styled.div
     className="left"
   >
-    <[object Object]
+    <ForwardRef
       to="/"
     >
       <styled.div
@@ -15,12 +15,12 @@ exports[`Header renders correctly 1`] = `
       >
         <Logo />
       </styled.div>
-    </[object Object]>
-    <[object Object]
+    </ForwardRef>
+    <ForwardRef
       to="boots"
     >
       Boots
-    </[object Object]>
+    </ForwardRef>
   </styled.div>
   <styled.div
     className="right"
