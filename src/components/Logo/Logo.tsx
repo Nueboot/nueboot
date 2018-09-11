@@ -12,12 +12,7 @@ const Logo = (props: LogoProps) => {
   const height = 38;
   const viewBox = `0 0 ${width} ${height}`;
   return (
-    <svg
-      className={props.className || ''}
-      viewBox={viewBox}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M10.0664 17.5312L4.37109 7.60547V17.5312H0V0.46875H4.37109L10.0547 10.3828V0.46875H14.4141V17.5312H10.0664Z"
         transform="translate(0.390625 0.9375) scale(2)"
