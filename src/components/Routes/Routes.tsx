@@ -3,7 +3,7 @@ import React from 'react';
 
 import Home from '../Home';
 
-const App = () => (
+const App: React.SFC = () => (
   <Router>
     <Home path="/" />
   </Router>
