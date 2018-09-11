@@ -20,7 +20,6 @@
     "firebase": "^4.13.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-modal": "^3.4.4",
     "styled-components": "^3.4.6",
     "typeface-heebo": "^0.0.54"
   },
@@ -32,7 +31,6 @@
     "@types/reach__router": "^1.0.1",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
-    "@types/react-modal": "^3.1.2",
     "@types/webpack-env": "^1.13.6",
     "babel-plugin-dynamic-import-node": "1.2.0",
     "babel-plugin-syntax-dynamic-import": "6.18.0",
