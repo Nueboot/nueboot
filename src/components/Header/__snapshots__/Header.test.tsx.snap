@@ -25,9 +25,7 @@ exports[`Header renders correctly 1`] = `
   <styled.div
     className="right"
   >
-    <div>
-      Log in
-    </div>
+    <Auth />
   </styled.div>
 </styled.div>
 `;

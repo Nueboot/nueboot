@@ -1,13 +1,13 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
 
-import App from './App';
+import { App, AppProps } from './App';
 
 describe('App', () => {
-  let component: ShallowWrapper;
+  let component: ShallowWrapper<AppProps>;
 
   beforeEach(() => {
-    component = shallow(<App />);
+    component = shallow(<App authUser={null} />);
   });
 
   it('renders correctly', () => {

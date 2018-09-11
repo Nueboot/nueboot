@@ -3,20 +3,26 @@ import styled from 'styled-components';
 
 import './App.css';
 
+import { User } from 'firebase';
 import Header from '../Header';
 import Routes from '../Routes';
+import withAuthentication from '../Session/withAuthentication';
 
-const Component = styled.div`
+const StyledApp = styled.div`
   font-family: 'Heebo', 'Helvetica', sans-serif;
   margin: 0;
   padding: 0;
 `;
 
-const App = () => (
-  <Component className="app">
-    <Header/>
+export interface AppProps {
+  readonly authUser: User | null;
+}
+
+export const App: React.SFC<AppProps> = () => (
+  <StyledApp className="app">
+    <Header />
     <Routes />
-  </Component>
+  </StyledApp>
 );
 
-export default App;
+export default withAuthentication(App);

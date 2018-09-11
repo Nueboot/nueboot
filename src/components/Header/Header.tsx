@@ -1,7 +1,8 @@
+import { Link } from '@reach/router';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Link } from '@reach/router';
+import Auth from '../Auth';
 import LogoSvg from '../Logo';
 
 const Logo = styled.div`
@@ -35,7 +36,7 @@ const Header: React.SFC = () => (
       <Link to="boots">Boots</Link>
     </Column>
     <Column className="right">
-      <div>Log in</div>
+      <Auth />
     </Column>
   </StyledHeader>
 );
