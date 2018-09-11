@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import './App.css';
+
 import Header from '../Header';
 import Routes from '../Routes';
 
@@ -11,7 +13,7 @@ const Component = styled.div`
 `;
 
 const App = () => (
-  <Component>
+  <Component className="app">
     <Header/>
     <Routes />
   </Component>

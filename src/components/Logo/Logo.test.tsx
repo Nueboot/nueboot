@@ -28,17 +28,4 @@ describe('Logo', () => {
       expect(component).toMatchSnapshot();
     });
   });
-
-  describe('with a class', () => {
-    beforeEach(() => {
-      props = {
-        className: 'logo',
-      };
-      component = shallow(<Logo {...props} />);
-    });
-
-    it('renders correctly', () => {
-      expect(component).toMatchSnapshot();
-    });
-  });
 });
