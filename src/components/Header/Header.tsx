@@ -1,8 +1,10 @@
 import React from 'react';
 import { ModalTypes } from 'state/Modal/types';
 
-import { Container, Logo, Text } from '../Styled';
-import { NavigationLink } from '../Styled';
+import { Link } from 'react-router-dom';
+import { Container, Logo } from '../Styled';
+import NavigationLink from '../Styled/NavigationLink';
+import Text from '../Styled/Text';
 
 export interface DispatchProps {
   readonly openModal: (type: ModalTypes) => void;
@@ -40,10 +42,12 @@ const Header: React.SFC<HeaderProps> = props => {
     <div className="header">
       <Container className="mv4 flex justify-between items-center">
         <div className="flex items-center">
-          <Logo />
-          <NavigationLink to="/boots" className="link no-underline ml4">
+          <Link to="/">
+            <Logo />
+          </Link>
+          <Link to="/boots" className="link no-underline ml4 black">
             <Text className="fw5 pointer">Boots</Text>
-          </NavigationLink>
+          </Link>
         </div>
         {auth()}
       </Container>

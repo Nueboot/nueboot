@@ -1,6 +1,5 @@
 // tslint:disable:max-line-length
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export interface LogoProps {
   readonly color?: string;
@@ -12,7 +11,6 @@ const Logo = (props: LogoProps) => {
   const height = 38;
   const viewBox = `0 0 ${width} ${height}`;
   return (
-    <Link to="/">
     <svg
       className="w4"
       viewBox={viewBox}
@@ -55,7 +53,6 @@ const Logo = (props: LogoProps) => {
         fill={color}
       />
     </svg>
-    </Link >
   );
 };
 
