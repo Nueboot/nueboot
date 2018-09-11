@@ -2,7 +2,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 
 import { ModalTypes } from 'state/Modal/types';
-import { Text } from '../Styled';
+import Text from '../Styled/Text';
 import AuthLogin from './AuthLogin';
 
 export interface StateProps {
