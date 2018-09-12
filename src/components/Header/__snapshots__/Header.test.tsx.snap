@@ -1,31 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders correctly 1`] = `
-<styled.div
-  className="header"
->
+<styled.div>
   <styled.div
-    className="left"
+    className="header"
   >
-    <ForwardRef
-      to="/"
+    <styled.div
+      className="left"
     >
-      <styled.div
-        className="logo"
+      <ForwardRef
+        to="/"
       >
-        <Logo />
-      </styled.div>
-    </ForwardRef>
-    <ForwardRef
-      to="boots"
+        <styled.div
+          className="logo"
+        >
+          <Logo />
+        </styled.div>
+      </ForwardRef>
+      <ForwardRef
+        to="boots"
+      >
+        Boots
+      </ForwardRef>
+    </styled.div>
+    <styled.div
+      className="right"
     >
-      Boots
-    </ForwardRef>
-  </styled.div>
-  <styled.div
-    className="right"
-  >
-    <Auth />
+      <Auth />
+    </styled.div>
   </styled.div>
 </styled.div>
 `;

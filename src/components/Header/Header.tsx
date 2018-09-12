@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Auth from '../Auth';
 import LogoSvg from '../Logo';
+import Container from '../Styled/Container';
 
 const Logo = styled.div`
   width: 105px;
@@ -26,19 +27,21 @@ const Column = styled.div`
 `;
 
 const Header: React.SFC = () => (
-  <StyledHeader className="header">
-    <Column className="left">
-      <Link to="/">
-        <Logo className="logo">
-          <LogoSvg />
-        </Logo>
-      </Link>
-      <Link to="boots">Boots</Link>
-    </Column>
-    <Column className="right">
-      <Auth />
-    </Column>
-  </StyledHeader>
+  <Container>
+    <StyledHeader className="header">
+      <Column className="left">
+        <Link to="/">
+          <Logo className="logo">
+            <LogoSvg />
+          </Logo>
+        </Link>
+        <Link to="boots">Boots</Link>
+      </Column>
+      <Column className="right">
+        <Auth />
+      </Column>
+    </StyledHeader>
+  </Container>
 );
 
 export default Header;
