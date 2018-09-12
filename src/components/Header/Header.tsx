@@ -8,12 +8,13 @@ import Container from '../Styled/Container';
 import NavLink from '../Styled/NavLink';
 import Text from '../Styled/Text';
 
-const Logo = styled.div`
+const Logo = styled(Link)`
   width: 105px;
   display: inline-block;
   vertical-align: middle;
   line-height: 0;
   margin-right: 20px;
+  margin-top: -2px;
 `;
 
 const StyledHeader = styled.div`
@@ -21,6 +22,7 @@ const StyledHeader = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 2rem;
 `;
 
 const Column = styled.div`
@@ -31,17 +33,15 @@ const Column = styled.div`
 const Header: React.SFC = () => (
   <Container>
     <StyledHeader className="header">
-      <Column className="left">
-        <Link to="/">
-          <Logo className="logo">
-            <LogoSvg />
-          </Logo>
-        </Link>
+      <Column>
+        <Logo to="/">
+          <LogoSvg />
+        </Logo>
         <NavLink to="boots">
           <Text>Boots</Text>
         </NavLink>
       </Column>
-      <Column className="right">
+      <Column>
         <Auth />
       </Column>
     </StyledHeader>

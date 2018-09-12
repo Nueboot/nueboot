@@ -5,17 +5,11 @@ exports[`Header renders correctly 1`] = `
   <styled.div
     className="header"
   >
-    <styled.div
-      className="left"
-    >
+    <styled.div>
       <ForwardRef
         to="/"
       >
-        <styled.div
-          className="logo"
-        >
-          <Logo />
-        </styled.div>
+        <Logo />
       </ForwardRef>
       <ForwardRef
         to="boots"
@@ -25,9 +19,7 @@ exports[`Header renders correctly 1`] = `
         </styled.span>
       </ForwardRef>
     </styled.div>
-    <styled.div
-      className="right"
-    >
+    <styled.div>
       <Auth />
     </styled.div>
   </styled.div>

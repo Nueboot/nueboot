@@ -1,6 +1,5 @@
 // tslint:disable:max-line-length
 import React from 'react';
-import styled from 'styled-components';
 
 export interface LogoProps {
   readonly color?: string;
@@ -8,17 +7,13 @@ export interface LogoProps {
   readonly width?: number;
 }
 
-const StyledSvg = styled.svg`
-  line-height: 0;
-`;
-
 const Logo = (props: LogoProps) => {
   const color = props.color || 'black';
   const width = props.width || 105;
   const height = props.height || 19;
   const viewBox = `0 0 ${width} ${height}`;
   return (
-    <StyledSvg viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M10.0664 17.5312L4.37109 7.60547V17.5312H0V0.46875H4.37109L10.0547 10.3828V0.46875H14.4141V17.5312H10.0664Z"
         fill={color}
@@ -47,7 +42,7 @@ const Logo = (props: LogoProps) => {
         d="M104.049 4.00781H98.9634V17.5312H94.5806V4.00781H89.6236V0.46875H98.9634H104.049V4.00781Z"
         fill={color}
       />
-    </StyledSvg>
+    </svg>
   );
 };
 

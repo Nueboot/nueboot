@@ -4,6 +4,7 @@ export const Dropdown = styled.div`
   position: relative;
   display: inline-block;
   cursor: pointer;
+  background-color: white;
   :hover div {
     display: block;
   }
