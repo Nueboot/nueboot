@@ -1,10 +1,12 @@
-import { Link } from '@reach/router';
 import React from 'react';
 import styled from 'styled-components';
 
+import { Link } from '@reach/router';
 import Auth from '../Auth';
 import LogoSvg from '../Logo';
 import Container from '../Styled/Container';
+import NavLink from '../Styled/NavLink';
+import Text from '../Styled/Text';
 
 const Logo = styled.div`
   width: 105px;
@@ -35,7 +37,9 @@ const Header: React.SFC = () => (
             <LogoSvg />
           </Logo>
         </Link>
-        <Link to="boots">Boots</Link>
+        <NavLink to="boots">
+          <Text>Boots</Text>
+        </NavLink>
       </Column>
       <Column className="right">
         <Auth />
