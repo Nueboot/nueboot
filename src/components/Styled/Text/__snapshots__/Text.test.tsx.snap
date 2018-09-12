@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text with bold renders correctly 1`] = `
+<span
+  className="sc-bdVaJa cxzrWC"
+/>
+`;
+
+exports[`Text without bold renders correctly 1`] = `
+<span
+  className="sc-bdVaJa fKKtts"
+/>
+`;
