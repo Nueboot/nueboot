@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Auth when a user is logged in logout component renders correctly 1`] = `
-<div>
+<styled.span>
   Logout
-</div>
+</styled.span>
 `;
 
 exports[`Auth when a user is logged in renders a logout button 1`] = `<Logout />`;
 
 exports[`Auth when no user is logged in login component renders correctly 1`] = `
-<div>
+<styled.span>
   Login
-</div>
+</styled.span>
 `;
 
 exports[`Auth when no user is logged in renders a login button 1`] = `<Login />`;

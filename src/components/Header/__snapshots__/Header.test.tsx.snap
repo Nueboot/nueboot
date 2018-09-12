@@ -20,7 +20,9 @@ exports[`Header renders correctly 1`] = `
       <ForwardRef
         to="boots"
       >
-        Boots
+        <styled.span>
+          Boots
+        </styled.span>
       </ForwardRef>
     </styled.div>
     <styled.div

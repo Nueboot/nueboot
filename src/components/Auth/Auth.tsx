@@ -1,8 +1,9 @@
 import React from 'react';
 import AuthUserContext from '../Session/AuthUserContext';
+import Text from '../Styled/Text';
 
-export const Login = () => <div>Login</div>;
-export const Logout = () => <div>Logout</div>;
+export const Login = () => <Text>Login</Text>;
+export const Logout = () => <Text>Logout</Text>;
 
 const Auth = () => (
   <AuthUserContext.Consumer>
