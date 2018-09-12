@@ -7,10 +7,10 @@ describe('App', () => {
   let component: ShallowWrapper<AppProps>;
 
   beforeEach(() => {
-    component = shallow(<App authUser={null} />);
-  });
+      component = shallow(<App authUser={null} />);
+    });
 
   it('renders correctly', () => {
-    expect(component).toMatchSnapshot();
-  });
+      expect(component).toMatchSnapshot();
+    });
 });

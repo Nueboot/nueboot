@@ -1,7 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Auth renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+exports[`Auth when a user is logged in logout component renders correctly 1`] = `
+<div>
+  Logout
+</div>
 `;
+
+exports[`Auth when a user is logged in renders a logout button 1`] = `<Logout />`;
+
+exports[`Auth when no user is logged in login component renders correctly 1`] = `
+<div>
+  Login
+</div>
+`;
+
+exports[`Auth when no user is logged in renders a login button 1`] = `<Login />`;

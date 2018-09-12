@@ -1,8 +1,8 @@
 import React from 'react';
 import AuthUserContext from '../Session/AuthUserContext';
 
-const Login = () => <div>Login</div>;
-const Logout = () => <div>Logout</div>;
+export const Login = () => <div>Login</div>;
+export const Logout = () => <div>Logout</div>;
 
 const Auth = () => (
   <AuthUserContext.Consumer>
