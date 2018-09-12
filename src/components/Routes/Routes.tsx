@@ -5,7 +5,7 @@ import Home from '../Home';
 
 const App: React.SFC = () => (
   <Router>
-    <Home path="/" />
+    <Home default path="/" />
   </Router>
 );
 
