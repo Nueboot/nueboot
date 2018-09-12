@@ -7,7 +7,7 @@ import { RouteComponentProps } from '@reach/router';
 import { shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
 
-import Auth, { Login, Logout } from './Auth';
+import Auth from './Auth';
 
 describe('Auth', () => {
   let component: ShallowWrapper<RouteComponentProps>;
@@ -22,17 +22,6 @@ describe('Auth', () => {
       expect(component.dive()).toMatchSnapshot();
     });
 
-    describe('login component', () => {
-      let loginComponent: ShallowWrapper;
-
-      beforeEach(() => {
-        loginComponent = shallow(<Login />);
-      });
-
-      it('renders correctly', () => {
-        expect(loginComponent).toMatchSnapshot();
-      });
-    });
   });
 
   describe('when a user is logged in', () => {
@@ -44,18 +33,5 @@ describe('Auth', () => {
     it('renders a logout button', () => {
       expect(component.dive()).toMatchSnapshot();
     });
-
-    describe('logout component', () => {
-      let logoutComponent: ShallowWrapper;
-
-      beforeEach(() => {
-        logoutComponent = shallow(<Logout />);
-      });
-
-      it('renders correctly', () => {
-        expect(logoutComponent).toMatchSnapshot();
-      });
-    });
   });
-
 });

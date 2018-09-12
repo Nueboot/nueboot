@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logout renders correctly 1`] = `
+<styled.div>
+  <styled.span>
+    Mickey
+     ⌵
+  </styled.span>
+  <styled.div>
+    <Styled(styled.span)>
+      Sign out
+    </Styled(styled.span)>
+  </styled.div>
+</styled.div>
+`;

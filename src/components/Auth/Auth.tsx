@@ -1,14 +1,14 @@
 import React from 'react';
-import AuthUserContext from '../Session/AuthUserContext';
-import Text from '../Styled/Text';
 
-export const Login = () => <Text>Login</Text>;
-export const Logout = () => <Text>Logout</Text>;
+import AuthUserContext from '../Session/AuthUserContext';
+
+import Login from './Login';
+import Logout from './Logout';
 
 const Auth = () => (
   <AuthUserContext.Consumer>
     {authUser => authUser
-      ? <Logout />
+      ? <Logout displayName={authUser.displayName} />
       : <Login />
     }
   </AuthUserContext.Consumer>

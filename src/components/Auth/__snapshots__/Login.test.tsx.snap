@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login renders correctly 1`] = `
+<styled.div>
+  <styled.span>
+    Login ⌵
+  </styled.span>
+  <styled.div>
+    <Styled(styled.span)>
+      Google
+    </Styled(styled.span)>
+    <Styled(styled.span)>
+      Facebook
+    </Styled(styled.span)>
+  </styled.div>
+</styled.div>
+`;
