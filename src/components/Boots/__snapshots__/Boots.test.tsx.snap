@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Boots with boots renders correctly 1`] = `
+<styled.div>
+  <styled.h1>
+    Boots
+  </styled.h1>
+  <div
+    key="Predator"
+  >
+    <ForwardRef
+      state={
+        Object {
+          "boot": Object {
+            "brand": "Adidas",
+            "material": "Knit",
+            "midcut": true,
+            "model": "Predator",
+            "msrp": 100,
+            "releaseDate": "1/1/2001",
+            "weight": 99,
+          },
+        }
+      }
+      to="/boots/1"
+    >
+      <styled.span
+        bold={true}
+      >
+        Adidas
+      </styled.span>
+       
+      <styled.span>
+        Predator
+      </styled.span>
+    </ForwardRef>
+  </div>
+</styled.div>
+`;
+
+exports[`Boots with no boots renders correctly 1`] = `<Spinner />`;

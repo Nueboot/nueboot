@@ -1,6 +1,6 @@
 import firebase from '../lib/firebase';
 
-import { BootInfo } from './types';
+import { Boot } from '../types';
 
 export type FirebaseWrite = (path: string, data: {}) => Promise<any>;
 
@@ -31,19 +31,19 @@ export const currentUser = () => {
   return firebase.auth().currentUser;
 };
 
-export const addBoot = (bootInfo: BootInfo) => {
+export const addBoot = (bootInfo: Boot) => {
   const newBoot = firebase.database().ref('/boots/').push();
   return newBoot.set(bootInfo);
 };
 
-export const updateBoot = (id: number, data: Partial<BootInfo>) => {
+export const updateBoot = (id: number, data: Partial<Boot>) => {
   return updateData(`/boots/${id}`, data);
 };
 
-export type GetAllBoots = () => Promise<BootInfo[]>;
+export type GetAllBoots = () => Promise<Boot[]>;
 
 export const getAllBoots: GetAllBoots = () => getData('boots');
 
-export type GetBoot = (id: string) => Promise<BootInfo>;
+export type GetBoot = (id: string) => Promise<Boot>;
 
 export const getBoot: GetBoot = id => getData(`boots/${id}`);

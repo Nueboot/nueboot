@@ -22,7 +22,7 @@ const StyledHeader = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin: 2rem 0;
 `;
 
 const Column = styled.div`

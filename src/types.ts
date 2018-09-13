@@ -1,4 +1,5 @@
 export type Material = 'Knit' | 'Leather' | 'Synthetic';
+
 export type Brands =
   | 'Adidas'
   | 'Nike'
@@ -7,7 +8,7 @@ export type Brands =
   | 'Under Armour'
   | 'Mizuno';
 
-export interface BootInfo {
+export interface Boot {
   brand: Brands;
   material: Material;
   midcut: boolean;
