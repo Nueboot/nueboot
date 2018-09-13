@@ -39,7 +39,7 @@ export default class Boots extends React.PureComponent<RouteComponentProps, Boot
         <Heading>Boots</Heading>
         {this.state && this.state.boots.map((boot, index) => (
           <div key={boot.model}>
-            <NavLink to={`/boots/${index + 1}`} state={{ boot }}>
+            <NavLink to={`/boots/${index}`} state={{ boot }}>
               <Text bold>{boot.brand}</Text> <Text>{boot.model}</Text>
             </NavLink>
           </div>
