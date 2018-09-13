@@ -1,1 +1,1 @@
-export { default } from './BootsContainer';
+export { default } from './Boots';

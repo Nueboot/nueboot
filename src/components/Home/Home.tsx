@@ -1,10 +1,8 @@
+import { RouteComponentProps } from '@reach/router';
 import React from 'react';
-import { Container, Heading } from '../Styled';
 
-const Home = () => (
-  <Container className="home">
-    <Heading>Hi</Heading>
-  </Container>
+const Home: React.SFC<RouteComponentProps> = props => (
+  <h1>Hi</h1>
 );
 
 export default Home;

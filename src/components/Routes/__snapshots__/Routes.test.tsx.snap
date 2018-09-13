@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes renders the right routes 1`] = `
+<Router>
+  <Home
+    default={true}
+    path="/"
+  />
+  <Boots
+    path="/boots"
+  />
+  <Boot
+    path="/boots/:bootId"
+  />
+</Router>
+`;

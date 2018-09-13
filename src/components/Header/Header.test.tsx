@@ -2,13 +2,13 @@ import { RouteComponentProps } from '@reach/router';
 import { shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
 
-import Home from './Home';
+import Header from './Header';
 
-describe('Home', () => {
+describe('Header', () => {
   let component: ShallowWrapper<RouteComponentProps>;
 
   beforeEach(() => {
-    component = shallow(<Home />);
+    component = shallow(<Header />);
   });
 
   it('renders correctly', () => {

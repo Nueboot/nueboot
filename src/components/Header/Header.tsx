@@ -1,54 +1,51 @@
 import React from 'react';
-import { ModalTypes } from 'state/Modal/types';
+import styled from 'styled-components';
 
-import { Container, Logo, Text } from '../Styled';
-import { NavigationLink } from '../Styled';
+import { Link } from '@reach/router';
+import Auth from '../Auth';
+import LogoSvg from '../Logo';
+import Container from '../Styled/Container';
+import NavLink from '../Styled/NavLink';
+import Text from '../Styled/Text';
 
-export interface DispatchProps {
-  readonly openModal: (type: ModalTypes) => void;
-  logout(): void;
-}
+const Logo = styled(Link)`
+  width: 105px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+  margin-right: 20px;
+  margin-top: -2px;
+`;
 
-export interface StateProps {
-  readonly loggedIn: boolean;
-  readonly pending: boolean;
-}
+const StyledHeader = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2rem 0;
+`;
 
-export type HeaderProps = DispatchProps & StateProps;
+const Column = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-const Header: React.SFC<HeaderProps> = props => {
-  const handleClick = (type: ModalTypes) => () => {
-    props.openModal(type);
-  };
-
-  const logout = () => {
-    props.logout();
-  };
-
-  const auth = () => {
-    const classList = 'pointer fw5';
-    if (props.pending) {
-      return null;
-    }
-    if (props.loggedIn) {
-      return <Text className={classList} onClick={logout}>Log Out</Text>;
-    }
-    return <Text className={classList} onClick={handleClick('login')}>Log In</Text>;
-  };
-
-  return(
-    <div className="header">
-      <Container className="mv4 flex justify-between items-center">
-        <div className="flex items-center">
-          <Logo />
-          <NavigationLink to="/boots" className="link no-underline ml4">
-            <Text className="fw5 pointer">Boots</Text>
-          </NavigationLink>
-        </div>
-        {auth()}
-      </Container>
-    </div>
-  );
-};
+const Header: React.SFC = () => (
+  <Container>
+    <StyledHeader className="header">
+      <Column>
+        <Logo to="/">
+          <LogoSvg />
+        </Logo>
+        <NavLink to="boots">
+          <Text>Boots</Text>
+        </NavLink>
+      </Column>
+      <Column>
+        <Auth />
+      </Column>
+    </StyledHeader>
+  </Container>
+);
 
 export default Header;

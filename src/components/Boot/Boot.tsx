@@ -1,69 +1,52 @@
-import { BootInfo } from 'api/types';
+import { RouteComponentProps } from '@reach/router';
 import React from 'react';
-import { RouteComponentProps } from 'react-router';
 
-import Rating from '../Rating';
-import Reviews from '../Reviews';
-import { Container, Heading, Image, Spinner, Subheading } from '../Styled';
+import { getBoot } from 'api';
+import { Boot as BootInfo } from '../../types';
+import Spinner from '../Spinner';
+import Container from '../Styled/Container';
+import Heading from '../Styled/Heading';
 
-import './Boot.css';
-import BootStats from './BootStats';
-
-export interface MatchParams {
-  bootId: string;
+interface BootProps {
+  readonly bootId: string;
 }
 
-export interface Props extends RouteComponentProps<MatchParams> {}
-
-export interface DispatchProps {
-  getBoot(): void;
-}
-export interface StateProps {
-  boot?: BootInfo;
-  loading: boolean;
+interface BootState {
+  boot: BootInfo | null;
 }
 
-export type BootProps = Props & DispatchProps & StateProps;
-
-export default class Boot extends React.Component<BootProps> {
-  public componentDidMount() {
-    if (!this.props.boot) {
-      this.props.getBoot();
-    }
+export default class Boot extends React.PureComponent<RouteComponentProps<BootProps>, BootState> {
+  public constructor(props) {
+    super(props);
+    this.state = {
+      boot: null,
+    };
   }
 
+  public componentDidMount() {
+    if (this.props.location) {
+      if (this.props.location.state.boot) {
+        this.setState({
+          boot: this.props.location.state.boot,
+        });
+      } else if (this.props.bootId) {
+        getBoot(this.props.bootId).then(boot => {
+          this.setState({
+            boot,
+          });
+        });
+      }
+    }
+  }
   public render() {
-    if (this.props.loading) {
+    const { boot } = this.state;
+    if (boot === null) {
       return <Spinner />;
     }
-    if (!this.props.boot) {
-      return null;
-    }
+
     return (
       <Container>
-        <div className="boot-container">
-          <div className="boot-image">
-            <Image url="http://via.placeholder.com/300x200" />
-          </div>
-          <Reviews id={this.props.match.params.bootId} />
-          <div className="boot-info">
-            <Subheading>Brand</Subheading>
-            <Heading className="mb3">{this.props.boot.brand}</Heading>
-
-            <Subheading>Model</Subheading>
-            <Heading className="mb3">{this.props.boot.model}</Heading>
-
-            <Subheading>Rating</Subheading>
-            <Rating stars={5} />
-          </div>
-
-          <BootStats
-            weight={this.props.boot.weight}
-            material={this.props.boot.material}
-            releaseDate={this.props.boot.releaseDate}
-            msrp={this.props.boot.msrp}
-          />
-        </div>
+        <Heading>{boot.brand}</Heading>
       </Container>
     );
   }

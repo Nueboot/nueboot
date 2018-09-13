@@ -1,42 +1,51 @@
+import { RouteComponentProps } from '@reach/router';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { BootInfo } from '../../api/types';
-import { Container, Heading, Text } from '../Styled';
-import Spinner from '../Styled/Spinner';
 
-import './Boots.css';
+import { getAllBoots } from '../../api';
+import { Boot } from '../../types';
+import Spinner from '../Spinner';
+import Container from '../Styled/Container';
+import Heading from '../Styled/Heading';
+import NavLink from '../Styled/NavLink';
+import Text from '../Styled/Text';
 
-export interface StateProps {
-  boots: BootInfo[];
-  loading: boolean;
+interface BootsState {
+  readonly boots: Boot[] | null;
 }
 
-export type BootsProps = StateProps;
+export default class Boots extends React.PureComponent<RouteComponentProps, BootsState> {
+  public constructor(props) {
+    super(props);
+    this.state = {
+      boots: null,
+    };
+  }
 
-export default class Boots extends React.Component<BootsProps> {
+  public componentDidMount() {
+    if (this.state.boots == null) {
+      getAllBoots().then(boots => {
+        this.setState({
+          boots,
+        });
+      });
+    }
+  }
+
   public render() {
-    if (this.props.loading) {
+    if (this.state.boots ===  null) {
       return <Spinner />;
     }
-    if (!this.props.boots) {
-      return null;
-    }
+
     return (
       <Container>
         <Heading>Boots</Heading>
-        <div className="boots">
-          {Object.keys(this.props.boots).map(key => {
-            const boot: BootInfo = this.props.boots[key];
-            return(
-              <div className="boot-list-item mv1" key={boot.model}>
-                <Link to={`boots/${key}`} className="link animate-bg underline-hover hover-green">
-                  <Text className="b">{boot.brand} </Text>
-                  <Text>{boot.model}</Text>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
+        {this.state && this.state.boots.map((boot, index) => (
+          <div key={boot.model}>
+            <NavLink to={`/boots/${index}`} state={{ boot }}>
+              <Text bold>{boot.brand}</Text> <Text>{boot.model}</Text>
+            </NavLink>
+          </div>
+        ))}
       </Container>
     );
   }
