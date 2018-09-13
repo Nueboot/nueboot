@@ -22,11 +22,13 @@ export default class Boots extends React.PureComponent<RouteComponentProps, Boot
   }
 
   public componentDidMount() {
-    getAllBoots().then(boots => {
-      this.setState({
-        boots,
+    if (this.state.boots == null) {
+      getAllBoots().then(boots => {
+        this.setState({
+          boots,
+        });
       });
-    });
+    }
   }
 
   public render() {

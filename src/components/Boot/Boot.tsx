@@ -2,7 +2,7 @@ import { RouteComponentProps } from '@reach/router';
 import React from 'react';
 
 import { getBoot } from 'api';
-import { Boot } from '../../types';
+import { Boot as BootInfo } from '../../types';
 import Spinner from '../Spinner';
 import Container from '../Styled/Container';
 import Heading from '../Styled/Heading';
@@ -12,10 +12,10 @@ interface BootProps {
 }
 
 interface BootState {
-  boot: Boot | null;
+  boot: BootInfo | null;
 }
 
-export default class BootComponent extends React.PureComponent<RouteComponentProps<BootProps>, BootState> {
+export default class Boot extends React.PureComponent<RouteComponentProps<BootProps>, BootState> {
   public constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +30,11 @@ export default class BootComponent extends React.PureComponent<RouteComponentPro
           boot: this.props.location.state.boot,
         });
       } else if (this.props.bootId) {
-        getBoot(this.props.bootId);
+        getBoot(this.props.bootId).then(boot => {
+          this.setState({
+            boot,
+          });
+        });
       }
     }
   }

@@ -9,5 +9,8 @@ exports[`Routes renders the right routes 1`] = `
   <Boots
     path="/boots"
   />
+  <Boot
+    path="/boots/:bootId"
+  />
 </Router>
 `;

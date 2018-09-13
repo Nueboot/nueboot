@@ -22,7 +22,7 @@ exports[`Boots with boots renders correctly 1`] = `
           },
         }
       }
-      to="/boots/1"
+      to="/boots/0"
     >
       <styled.span
         bold={true}
