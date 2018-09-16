@@ -7,7 +7,7 @@ describe('Reviews', () => {
 
   beforeEach(() => {
     const props: ReviewsProps = {
-       id: '1',
+      id: '1',
     };
     component = shallow(<Reviews {...props} />);
   });
