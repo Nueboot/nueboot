@@ -1,6 +1,6 @@
 {
   "rules": {
-    "boots" : {
+    "boots": {
       ".read": "true",
       ".write": "auth != null"
     }

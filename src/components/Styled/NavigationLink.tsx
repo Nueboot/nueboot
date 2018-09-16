@@ -7,8 +7,11 @@ interface NavigationLinkProps {
 }
 
 const NavigationLink: React.SFC<NavigationLinkProps> = props => {
-  return(
-    <Link className={`no-underline link ${props.className ? props.className : ''}`} to={props.to}>
+  return (
+    <Link
+      className={`no-underline link ${props.className ? props.className : ''}`}
+      to={props.to}
+    >
       {props.children}
     </Link>
   );

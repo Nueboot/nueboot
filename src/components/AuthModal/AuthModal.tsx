@@ -54,12 +54,14 @@ const AuthModal: React.SFC<AuthModalProps> = props => {
       contentLabel="Login"
       className="mw5 ba outline-0 b--black-20 bg-white"
     >
-      <Text className="pointer fr pa1" onClick={closeModal}>X</Text>
+      <Text className="pointer fr pa1" onClick={closeModal}>
+        X
+      </Text>
       <AuthLogin
-            error={props.error}
-            facebookLogin={props.facebookLogin}
-            googleLogin={props.googleLogin}
-          />
+        error={props.error}
+        facebookLogin={props.facebookLogin}
+        googleLogin={props.googleLogin}
+      />
     </ReactModal>
   );
 };
