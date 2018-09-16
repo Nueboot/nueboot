@@ -9,12 +9,9 @@ const Image: React.SFC<ImageProps> = props => {
   const style = {
     background: `url(${props.url}) center`,
   };
-  return(
+  return (
     <div className="aspect-ratio aspect-ratio--16x9 mb4">
-      <div
-        className="aspect-ratio--object cover"
-        style={style}
-      />
+      <div className="aspect-ratio--object cover" style={style} />
     </div>
   );
 };

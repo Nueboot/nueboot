@@ -25,11 +25,7 @@ const Button: React.SFC<ButtonProps> = props => {
   };
 
   return (
-    <button
-      className={className}
-      onClick={onClick}
-      style={styles}
-    >
+    <button className={className} onClick={onClick} style={styles}>
       {props.children}
     </button>
   );

@@ -49,16 +49,30 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
+    "husky": "^1.0.0-rc.14",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
+    "lint-staged": "^7.2.2",
     "parcel-bundler": "^1.7.1",
     "parcel-plugin-clean-dist": "^0.0.6",
     "parcel-plugin-typescript": "^0.7.0",
+    "prettier": "1.14.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-mock-store": "^1.5.1",
     "ts-jest": "^22.4.6",
     "tslint": "^5.9.1",
     "tslint-react": "^3.5.1",
     "typescript": "^2.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

@@ -27,9 +27,12 @@ export default class Boots extends React.Component<BootsProps> {
         <div className="boots">
           {Object.keys(this.props.boots).map(key => {
             const boot: BootInfo = this.props.boots[key];
-            return(
+            return (
               <div className="boot-list-item mv1" key={boot.model}>
-                <Link to={`boots/${key}`} className="link animate-bg underline-hover hover-green">
+                <Link
+                  to={`boots/${key}`}
+                  className="link animate-bg underline-hover hover-green"
+                >
                   <Text className="b">{boot.brand} </Text>
                   <Text>{boot.model}</Text>
                 </Link>

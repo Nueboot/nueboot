@@ -31,12 +31,20 @@ const Header: React.SFC<HeaderProps> = props => {
       return null;
     }
     if (props.loggedIn) {
-      return <Text className={classList} onClick={logout}>Log Out</Text>;
+      return (
+        <Text className={classList} onClick={logout}>
+          Log Out
+        </Text>
+      );
     }
-    return <Text className={classList} onClick={handleClick('login')}>Log In</Text>;
+    return (
+      <Text className={classList} onClick={handleClick('login')}>
+        Log In
+      </Text>
+    );
   };
 
-  return(
+  return (
     <div className="header">
       <Container className="mv4 flex justify-between items-center">
         <div className="flex items-center">
