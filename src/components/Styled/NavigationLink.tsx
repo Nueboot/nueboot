@@ -1,20 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-interface NavigationLinkProps {
-  to: string;
-  className?: string;
-}
-
-const NavigationLink: React.SFC<NavigationLinkProps> = props => {
-  return (
-    <Link
-      className={`no-underline link ${props.className ? props.className : ''}`}
-      to={props.to}
-    >
-      {props.children}
-    </Link>
-  );
-};
+const NavigationLink = styled(Link)`
+  text-decoration: none;
+  transition: color 0.15s ease-in;
+`;
 
 export default NavigationLink;
