@@ -1,4 +1,8 @@
-import { FetchingAllBootsAction, GetAllBootsSuccessAction, GetBootAction } from './actions';
+import {
+  FetchingAllBootsAction,
+  GetAllBootsSuccessAction,
+  GetBootAction,
+} from './actions';
 import { BootsState } from './types';
 
 const initialBootsState: BootsState = {
@@ -6,9 +10,15 @@ const initialBootsState: BootsState = {
   byId: [],
 };
 
-export type BootsActions = FetchingAllBootsAction | GetAllBootsSuccessAction | GetBootAction;
+export type BootsActions =
+  | FetchingAllBootsAction
+  | GetAllBootsSuccessAction
+  | GetBootAction;
 
-const BootsReducer = (state: BootsState = initialBootsState, action: BootsActions): BootsState => {
+const BootsReducer = (
+  state: BootsState = initialBootsState,
+  action: BootsActions
+): BootsState => {
   switch (action.type) {
     case 'BOOTS.FETCHING_BOOTS':
       return {

@@ -11,20 +11,26 @@ export type FirebaseWrite = (path: string, data: {}) => Promise<any>;
 // };
 
 export const updateData: FirebaseWrite = (path, data) => {
-  return firebase.database().ref(path).transaction(currentData => {
-    if (currentData !== null) {
-      return { ...data };
-    } else {
-      throw new Error(`Boot at ${path} does not exist`);
-    }
-  });
+  return firebase
+    .database()
+    .ref(path)
+    .transaction(currentData => {
+      if (currentData !== null) {
+        return { ...data };
+      } else {
+        throw new Error(`Boot at ${path} does not exist`);
+      }
+    });
 };
 
 export type GetData = <T>(path: string) => Promise<T>;
 
 export const getData: GetData = <T>(path) => {
-  return firebase.database().ref(path).once('value')
-  .then(snapshot => snapshot.val());
+  return firebase
+    .database()
+    .ref(path)
+    .once('value')
+    .then(snapshot => snapshot.val());
 };
 
 export const currentUser = () => {
@@ -32,7 +38,10 @@ export const currentUser = () => {
 };
 
 export const addBoot = (bootInfo: BootInfo) => {
-  const newBoot = firebase.database().ref('/boots/').push();
+  const newBoot = firebase
+    .database()
+    .ref('/boots/')
+    .push();
   return newBoot.set(bootInfo);
 };
 

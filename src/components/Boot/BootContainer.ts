@@ -13,4 +13,7 @@ export const mapDispatchToProps = (dispatch, props: Props): DispatchProps => ({
   getBoot: () => dispatch(getBoot(props.match.params.bootId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Boot);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Boot);

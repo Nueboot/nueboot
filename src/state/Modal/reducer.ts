@@ -6,9 +6,15 @@ const initialModalState = {
   modalType: null,
 };
 
-export type ModalActions = OpenModalAction | CloseModalAction | LoginSuccessAction;
+export type ModalActions =
+  | OpenModalAction
+  | CloseModalAction
+  | LoginSuccessAction;
 
-const ModalReducer = (state: ModalState = initialModalState, action: ModalActions) => {
+const ModalReducer = (
+  state: ModalState = initialModalState,
+  action: ModalActions
+) => {
   switch (action.type) {
     case 'MODAL.OPEN_MODAL':
       return {

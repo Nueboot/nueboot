@@ -11,7 +11,9 @@ export const fetchingBoots: FetchAllBoots = () => ({
   type: 'BOOTS.FETCHING_BOOTS',
 });
 
-export type GetAllBootsSuccess = (boots: BootInfo[]) => GetAllBootsSuccessAction;
+export type GetAllBootsSuccess = (
+  boots: BootInfo[]
+) => GetAllBootsSuccessAction;
 
 export interface GetAllBootsSuccessAction {
   readonly type: 'BOOTS.RECEIVE_BOOTS';
@@ -27,11 +29,13 @@ export const getAllBootsSuccess: GetAllBootsSuccess = boots => ({
 
 export const getAllBoots = () => dispatch => {
   dispatch(fetchingBoots());
-  fetchBoots().then(boots => {
-    dispatch(getAllBootsSuccess(boots));
-  }).catch(err => {
-    return err;
-  });
+  fetchBoots()
+    .then(boots => {
+      dispatch(getAllBootsSuccess(boots));
+    })
+    .catch(err => {
+      return err;
+    });
 };
 
 export interface GetBootAction {
@@ -52,9 +56,11 @@ export const getBootSuccess = (id: string, boot: BootInfo): GetBootAction => ({
 
 export const getBoot = (id: string) => dispatch => {
   dispatch(fetchingBoots());
-  fetchBoot(id).then(boot => {
-    dispatch(getBootSuccess(id, boot));
-  }).catch(err => {
-    throw err;
-  });
-} ;
+  fetchBoot(id)
+    .then(boot => {
+      dispatch(getBootSuccess(id, boot));
+    })
+    .catch(err => {
+      throw err;
+    });
+};

@@ -23,7 +23,7 @@ export const verifyingUser: () => VerifyingUserAction = () => ({
 export interface LoginSuccessAction {
   readonly type: 'SESSION.LOGIN_SUCCESS';
   readonly payload: {
-    userInfo: {},
+    userInfo: {};
   };
 }
 
@@ -37,11 +37,13 @@ export const loginSuccess: (userInfo: {}) => LoginSuccessAction = userInfo => ({
 export interface LoginErrorAction {
   readonly type: 'SESSION.ERROR';
   readonly payload: {
-    error: FirebaseError,
+    error: FirebaseError;
   };
 }
 
-export const sessionError: (err: FirebaseError) => LoginErrorAction = error => ({
+export const sessionError: (
+  err: FirebaseError
+) => LoginErrorAction = error => ({
   payload: {
     error,
   },
@@ -75,7 +77,10 @@ export const loginWithFacebook = () => dispatch => {
 };
 
 export const oauthLogin = provider => dispatch => {
-  firebase.auth().signInWithPopup(provider).catch(err => {
-    dispatch(sessionError(err));
-  });
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .catch(err => {
+      dispatch(sessionError(err));
+    });
 };

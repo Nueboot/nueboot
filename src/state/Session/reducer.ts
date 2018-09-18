@@ -29,7 +29,7 @@ type SessionActions =
 
 const SessionReducer = (
   state: SessionState = initialSessionState,
-  action: SessionActions = OtherAction,
+  action: SessionActions = OtherAction
 ) => {
   switch (action.type) {
     case 'SESSION.LOGIN_SUCCESS':
@@ -40,7 +40,7 @@ const SessionReducer = (
           loggedIn: true,
           pending: false,
           user: action.payload.userInfo,
-        },
+        }
       );
     case 'SESSION.LOGOUT_SUCCESS':
       return Object.assign(
@@ -49,7 +49,7 @@ const SessionReducer = (
           ...state,
           loggedIn: false,
           pending: false,
-        },
+        }
       );
     case 'SESSION.PENDING':
       return Object.assign(
@@ -57,7 +57,7 @@ const SessionReducer = (
         {
           ...state,
           pending: true,
-        },
+        }
       );
     case 'SESSION.ERROR':
       return {
