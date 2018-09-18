@@ -1,6 +1,11 @@
 import { FirebaseError } from 'firebase';
 import { CloseModalAction } from '../Modal/actions';
-import { LoginErrorAction, LoginSuccessAction, LogOutSuccessAction, VerifyingUserAction } from './actions';
+import {
+  LoginErrorAction,
+  LoginSuccessAction,
+  LogOutSuccessAction,
+  VerifyingUserAction,
+} from './actions';
 import sessionReducer from './reducer';
 import { SessionState } from './types';
 
@@ -11,15 +16,15 @@ describe('Session reducer', () => {
 
   beforeEach(() => {
     error = {
-      name:  'Error',
-      message:  'Error',
-      code:  'Error',
+      name: 'Error',
+      message: 'Error',
+      code: 'Error',
     };
     state = {
       error: {
-        name:  'Error',
-        message:  'Error',
-        code:  'Error',
+        name: 'Error',
+        message: 'Error',
+        code: 'Error',
       },
       loggedIn: false,
       pending: false,

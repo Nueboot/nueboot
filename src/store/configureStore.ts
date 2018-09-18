@@ -11,8 +11,6 @@ export default function configureStore(history) {
   return createStore(
     rootReducer,
     preloadedState,
-    composeWithDevTools(
-      applyMiddleware(routerMiddleware(history), thunk),
-    ),
+    composeWithDevTools(applyMiddleware(routerMiddleware(history), thunk))
   );
 }

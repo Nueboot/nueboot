@@ -15,4 +15,7 @@ export const mapDispatchToProps = (dispatch): DispatchProps => ({
   googleLogin: () => dispatch(loginWithGoogle()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthModal);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AuthModal);

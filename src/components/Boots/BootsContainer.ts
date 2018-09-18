@@ -8,4 +8,4 @@ export const mapStateToProps = (state: State): StateProps => ({
   loading: bootLoading(state),
 });
 
-export default connect(mapStateToProps, {})(Boots);
+export default connect(mapStateToProps)(Boots);

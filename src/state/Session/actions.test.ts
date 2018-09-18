@@ -62,10 +62,12 @@ describe('Session Actions', () => {
     describe('when a user exists', () => {
       beforeEach(() => {
         (firebase.auth as any) = jest.fn(() => ({
-          onAuthStateChanged: jest.fn(cb => cb({
-            displayName: 'displayName',
-            uid: 'uid',
-          })),
+          onAuthStateChanged: jest.fn(cb =>
+            cb({
+              displayName: 'displayName',
+              uid: 'uid',
+            })
+          ),
         }));
 
         store.dispatch(verifyUser());
@@ -95,7 +97,7 @@ describe('Session Actions', () => {
     describe('when the logout is successful', () => {
       beforeEach(() => {
         (firebase.auth as any) = jest.fn(() => ({
-          signOut: jest.fn((() => Promise.resolve)),
+          signOut: jest.fn(() => Promise.resolve),
         }));
 
         store.dispatch(logoutUser());
@@ -125,7 +127,7 @@ describe('Session Actions', () => {
         provider = 'Google';
         (firebase.auth as any) = jest.fn(() => ({
           GoogleAuthProvider: () => provider,
-          signInWithPopup: jest.fn((() => Promise.resolve())),
+          signInWithPopup: jest.fn(() => Promise.resolve()),
         }));
 
         store.dispatch(loginWithGoogle());
@@ -137,7 +139,7 @@ describe('Session Actions', () => {
         provider = 'Google';
         (firebase.auth as any) = jest.fn(() => ({
           GoogleAuthProvider: () => provider,
-          signInWithPopup: jest.fn((() => Promise.reject('Error'))),
+          signInWithPopup: jest.fn(() => Promise.reject('Error')),
         }));
 
         store.dispatch(loginWithGoogle());
@@ -153,7 +155,7 @@ describe('Session Actions', () => {
         provider = 'Facebook';
         (firebase.auth as any) = jest.fn(() => ({
           FacebookAuthProvider: () => provider,
-          signInWithPopup: jest.fn((() => Promise.resolve())),
+          signInWithPopup: jest.fn(() => Promise.resolve()),
         }));
 
         store.dispatch(loginWithFacebook());
@@ -165,7 +167,7 @@ describe('Session Actions', () => {
         provider = 'Facebook';
         (firebase.auth as any) = jest.fn(() => ({
           FacebookAuthProvider: () => provider,
-          signInWithPopup: jest.fn((() => Promise.reject('Error'))),
+          signInWithPopup: jest.fn(() => Promise.reject('Error')),
         }));
 
         store.dispatch(loginWithFacebook());

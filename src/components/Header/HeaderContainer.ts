@@ -18,6 +18,9 @@ export const mapDispatchToProps = (dispatch): DispatchProps => ({
   logout: () => dispatch(logoutUser()),
 });
 
-const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
+const HeaderContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
 
 export default HeaderContainer;
