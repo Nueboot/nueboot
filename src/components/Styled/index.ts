@@ -4,7 +4,6 @@ export { default as Logo } from './Logo';
 export { default as Text } from './Text';
 export { default as Heading } from './Heading';
 export { default as Subheading } from './Subheading';
-export { default as Input } from './Input';
 export { default as Spinner } from './Spinner';
 export { default as Image } from './Image';
 export { default as NavigationLink } from './NavigationLink';
