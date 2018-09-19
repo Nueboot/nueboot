@@ -1,26 +1,15 @@
-import React from 'react';
+import styled from 'styled-components';
 
-export interface HeadingProps {
-  size?: 1 | 2;
-  className?: string;
-  style?: React.CSSProperties;
+interface HeadingProps {
+  readonly size?: 1 | 2;
 }
 
-const Heading = props => {
-  const className = props.className ? props.className : '';
-  let size = 'f2';
-
-  if (props.size === 2) {
-    size = 'f3';
-  }
-  return (
-    <h1
-      style={props.style}
-      className={`${className} ${size} ma0 mb2 fw9 pa0 black-90`}
-    >
-      {props.children}
-    </h1>
-  );
-};
+const Heading = styled.h1`
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+  font-size: ${(props: HeadingProps) =>
+    props.size === 2 ? `1.5rem` : `2.25rem`};
+`;
 
 export default Heading;
