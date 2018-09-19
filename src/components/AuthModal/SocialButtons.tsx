@@ -1,10 +1,20 @@
 // tslint:disable:max-line-length
 import React from 'react';
+import styled from 'styled-components';
 import { Button, Text } from '../Styled';
 
 interface ButtonProps {
   onClick?: () => void;
 }
+
+const StyledButton = styled(Button)`
+  display: flex;
+  justify-items: center;
+`;
+
+const WhiteText = styled(Text)`
+  color: white;
+`;
 
 export const FacebookButton: React.SFC<ButtonProps> = props => {
   const style: React.CSSProperties = {
@@ -12,7 +22,7 @@ export const FacebookButton: React.SFC<ButtonProps> = props => {
   };
 
   return (
-    <Button
+    <StyledButton
       onClick={props.onClick}
       style={style}
       className="flex items-center white bn mv2"
@@ -32,14 +42,17 @@ export const FacebookButton: React.SFC<ButtonProps> = props => {
           fillRule="nonzero"
         />
       </svg>
-      <Text className="f6 ml3 pr2 white">Login with Facebook</Text>
-    </Button>
+      <WhiteText className="f6 ml3 pr2 white">Login with Facebook</WhiteText>
+    </StyledButton>
   );
 };
 
 export const GoogleButton: React.SFC<ButtonProps> = props => {
   return (
-    <Button onClick={props.onClick} className="flex items-center white ba mv2">
+    <StyledButton
+      onClick={props.onClick}
+      className="flex items-center white ba mv2"
+    >
       <svg
         className="w1 h1"
         viewBox="0 0 118 120"
@@ -73,6 +86,6 @@ export const GoogleButton: React.SFC<ButtonProps> = props => {
         <path d="M0,0 L120,0 L120,120 L0,120 L0,0 Z" id="Shape" />
       </svg>
       <Text className="f6 ml3 pr2 black">Login with Google</Text>
-    </Button>
+    </StyledButton>
   );
 };

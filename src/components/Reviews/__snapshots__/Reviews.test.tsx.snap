@@ -7,17 +7,17 @@ exports[`Reviews renders correctly 1`] = `
   <div
     className="flex justify-between"
   >
-    <Heading
+    <styled.h1
       className="ttu dib"
       size={2}
     >
       Reviews
-    </Heading>
-    <Button
+    </styled.h1>
+    <styled.button
       className="bg-green white"
     >
       New Review
-    </Button>
+    </styled.button>
   </div>
 </section>
 `;

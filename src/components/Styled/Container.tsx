@@ -1,20 +1,9 @@
-import React, { CSSProperties } from 'react';
+import styled from 'styled-components';
 
-export interface ContainerProps {
-  className?: string;
-  style?: CSSProperties;
-}
-
-const Container: React.SFC<ContainerProps> = props => {
-  const classes = props.className ? `${props.className} ` : '';
-  return (
-    <div
-      style={props.style}
-      className={`${classes}container mw8 ph3 ph0-l center`}
-    >
-      {props.children}
-    </div>
-  );
-};
+const Container = styled.div`
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 64rem;
+`;
 
 export default Container;
