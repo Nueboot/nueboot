@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home renders as expected 1`] = `
-<Container
+<styled.div
   className="home"
 >
-  <Heading>
+  <styled.h1>
     Hi
-  </Heading>
-</Container>
+  </styled.h1>
+</styled.div>
 `;
