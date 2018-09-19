@@ -48,7 +48,9 @@ const Header: React.SFC<HeaderProps> = props => {
     <div className="header">
       <Container className="mv4 flex justify-between items-center">
         <div className="flex items-center">
-          <Logo />
+          <NavigationLink to="/">
+            <Logo />
+          </NavigationLink>
           <NavigationLink to="/boots" className="link no-underline ml4">
             <Text className="fw5 pointer">Boots</Text>
           </NavigationLink>
