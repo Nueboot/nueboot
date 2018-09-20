@@ -1,4 +1,4 @@
-import { auth, FirebaseError } from 'firebase';
+import { auth, FirebaseError, User } from 'firebase';
 import firebase from '../../lib/firebase';
 
 export const verifyUser = () => dispatch => {
@@ -23,11 +23,13 @@ export const verifyingUser: () => VerifyingUserAction = () => ({
 export interface LoginSuccessAction {
   readonly type: 'SESSION.LOGIN_SUCCESS';
   readonly payload: {
-    userInfo: {};
+    userInfo: User | null;
   };
 }
 
-export const loginSuccess: (userInfo: {}) => LoginSuccessAction = userInfo => ({
+export const loginSuccess: (
+  userInfo: User | null
+) => LoginSuccessAction = userInfo => ({
   type: 'SESSION.LOGIN_SUCCESS',
   payload: {
     userInfo,

@@ -4,5 +4,5 @@ export interface SessionState {
   error?: FirebaseError | null;
   loggedIn: boolean;
   pending: boolean;
-  user?: User;
+  user?: User | null;
 }
