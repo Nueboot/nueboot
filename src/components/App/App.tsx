@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
 import BootstrapApp, { history, store } from '../../bootstrap';
-import AuthModal from '../AuthModal';
 import Header from '../Header';
 import Routes from '../Routes';
 
@@ -17,7 +16,6 @@ export default () => (
       <div className="App">
         <Header />
         <Routes />
-        <AuthModal />
       </div>
     </ConnectedRouter>
   </Provider>
