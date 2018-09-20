@@ -1,5 +1,4 @@
 import { FirebaseError } from 'firebase';
-import { CloseModalAction } from '../Modal/actions';
 import {
   LoginErrorAction,
   LoginSuccessAction,
@@ -21,13 +20,10 @@ describe('Session reducer', () => {
       code: 'Error',
     };
     state = {
-      error: {
-        name: 'Error',
-        message: 'Error',
-        code: 'Error',
-      },
+      error,
       loggedIn: false,
       pending: false,
+      user: undefined,
     };
   });
 
@@ -47,7 +43,7 @@ describe('Session reducer', () => {
       action = {
         type: 'SESSION.LOGIN_SUCCESS',
         payload: {
-          userInfo: {},
+          userInfo: null,
         },
       };
 
@@ -104,25 +100,6 @@ describe('Session reducer', () => {
 
     it('returns the new state with pending set to true', () => {
       expect(newState.pending).toBe(true);
-    });
-  });
-
-  describe('close modal', () => {
-    let action: CloseModalAction;
-    beforeEach(() => {
-      action = {
-        type: 'MODAL.CLOSE_MODAL',
-      };
-      state = {
-        ...state,
-        error,
-      };
-
-      newState = sessionReducer(state, action);
-    });
-
-    it('clears the errors when closing the modal', () => {
-      expect(newState.error).toBe(null);
     });
   });
 });

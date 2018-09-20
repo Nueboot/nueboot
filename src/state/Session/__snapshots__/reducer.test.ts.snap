@@ -5,6 +5,6 @@ Object {
   "error": null,
   "loggedIn": false,
   "pending": false,
-  "user": Object {},
+  "user": undefined,
 }
 `;

@@ -1,4 +1,3 @@
-import { CloseModalAction } from '../Modal/actions';
 import {
   LoginErrorAction,
   LoginSuccessAction,
@@ -11,25 +10,24 @@ export const initialSessionState = {
   loggedIn: false,
   pending: false,
   error: null,
-  user: {},
+  user: undefined,
 };
 
 export interface OtherAction {
   type: '';
 }
-export const OtherAction: OtherAction = { type: '' };
+export const otherAction: OtherAction = { type: '' };
 
 type SessionActions =
   | LoginErrorAction
   | LoginSuccessAction
   | LogOutSuccessAction
   | VerifyingUserAction
-  | OtherAction
-  | CloseModalAction;
+  | OtherAction;
 
 const SessionReducer = (
   state: SessionState = initialSessionState,
-  action: SessionActions = OtherAction
+  action: SessionActions = otherAction
 ) => {
   switch (action.type) {
     case 'SESSION.LOGIN_SUCCESS':
@@ -49,6 +47,7 @@ const SessionReducer = (
           ...state,
           loggedIn: false,
           pending: false,
+          user: undefined,
         }
       );
     case 'SESSION.PENDING':
@@ -63,11 +62,6 @@ const SessionReducer = (
       return {
         ...state,
         error: action.payload.error,
-      };
-    case 'MODAL.CLOSE_MODAL':
-      return {
-        ...state,
-        error: null,
       };
     default:
       return state;
