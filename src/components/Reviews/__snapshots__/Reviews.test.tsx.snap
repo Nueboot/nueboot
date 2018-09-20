@@ -2,22 +2,15 @@
 
 exports[`Reviews renders correctly 1`] = `
 <section
-  className="reviews"
+  className="Reviews"
 >
-  <div
-    className="flex justify-between"
+  <styled.h1
+    size={2}
   >
-    <styled.h1
-      className="ttu dib"
-      size={2}
-    >
-      Reviews
-    </styled.h1>
-    <styled.button
-      className="bg-green white"
-    >
-      New Review
-    </styled.button>
-  </div>
+    Reviews
+  </styled.h1>
+  <styled.button>
+    New Review
+  </styled.button>
 </section>
 `;

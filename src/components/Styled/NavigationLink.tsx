@@ -3,7 +3,14 @@ import styled from 'styled-components';
 
 const NavigationLink = styled(Link)`
   text-decoration: none;
-  transition: color 0.15s ease-in;
+  color: #777;
+  transition: font-weight 0.15s ease-in;
+  :hover {
+    font-weight: 700;
+  }
+  :visited {
+    text-decoration: none;
+  }
 `;
 
 export default NavigationLink;

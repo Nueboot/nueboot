@@ -10,29 +10,29 @@ interface BootStatsProps {
 
 const BootStats: React.SFC<BootStatsProps> = props => {
   return (
-    <div className="boot-stats mt4">
+    <div className="boot-stats">
       {props.material && (
-        <div className="boot-stats-row bb b--black-10 mb2">
-          <span className="ttu f7 tracked b gray">Material</span>
-          <span className="b f6 fr">{props.material}</span>
+        <div className="boot-stats-row">
+          <span>Material</span>
+          <span>{props.material}</span>
         </div>
       )}
       {props.releaseDate && (
-        <div className="boot-stats-row bb b--black-10 mb2">
-          <span className="ttu f7 tracked b gray">Release Date (M/D/Y)</span>
-          <span className="b f6 fr">{props.releaseDate}</span>
+        <div className="boot-stats-row">
+          <span>Release Date (M/D/Y)</span>
+          <span>{props.releaseDate}</span>
         </div>
       )}
       {props.weight && (
-        <div className="boot-stats-row bb b--black-10 mb2">
-          <span className="ttu f7 tracked b gray">Weight</span>
-          <span className="b f6 fr">{props.weight} oz</span>
+        <div className="boot-stats-row">
+          <span>Weight</span>
+          <span>{props.weight} oz</span>
         </div>
       )}
       {props.msrp && (
-        <div className="boot-stats-row bb b--black-10 mb2">
-          <span className="ttu f7 tracked b gray">MSRP</span>
-          <span className="b f6 fr">${props.msrp}</span>
+        <div className="boot-stats-row">
+          <span>MSRP</span>
+          <span>${props.msrp}</span>
         </div>
       )}
     </div>

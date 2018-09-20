@@ -52,9 +52,9 @@ const AuthModal: React.SFC<AuthModalProps> = props => {
       isOpen={!!props.modal}
       onRequestClose={closeModal}
       contentLabel="Login"
-      className="mw5 ba outline-0 b--black-20 bg-white"
+      className="AuthModal"
     >
-      <Text className="pointer fr pa1" onClick={closeModal}>
+      <Text className="close" onClick={closeModal}>
         X
       </Text>
       <AuthLogin
