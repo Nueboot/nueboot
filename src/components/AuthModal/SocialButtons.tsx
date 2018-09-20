@@ -25,10 +25,9 @@ export const FacebookButton: React.SFC<ButtonProps> = props => {
     <StyledButton
       onClick={props.onClick}
       style={style}
-      className="flex items-center white bn mv2"
+      className="SocialButton facebook"
     >
       <svg
-        className="w1 h1"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
@@ -42,19 +41,15 @@ export const FacebookButton: React.SFC<ButtonProps> = props => {
           fillRule="nonzero"
         />
       </svg>
-      <WhiteText className="f6 ml3 pr2 white">Login with Facebook</WhiteText>
+      <WhiteText>Login with Facebook</WhiteText>
     </StyledButton>
   );
 };
 
 export const GoogleButton: React.SFC<ButtonProps> = props => {
   return (
-    <StyledButton
-      onClick={props.onClick}
-      className="flex items-center white ba mv2"
-    >
+    <StyledButton onClick={props.onClick} className="SocialButton google">
       <svg
-        className="w1 h1"
         viewBox="0 0 118 120"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +80,7 @@ export const GoogleButton: React.SFC<ButtonProps> = props => {
         />
         <path d="M0,0 L120,0 L120,120 L0,120 L0,0 Z" id="Shape" />
       </svg>
-      <Text className="f6 ml3 pr2 black">Login with Google</Text>
+      <Text>Login with Google</Text>
     </StyledButton>
   );
 };

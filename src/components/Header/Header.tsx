@@ -26,35 +26,24 @@ const Header: React.SFC<HeaderProps> = props => {
   };
 
   const auth = () => {
-    const classList = 'pointer fw5';
     if (props.pending) {
       return null;
     }
     if (props.loggedIn) {
-      return (
-        <Text className={classList} onClick={logout}>
-          Log Out
-        </Text>
-      );
+      return <Text onClick={logout}>Log Out</Text>;
     }
-    return (
-      <Text className={classList} onClick={handleClick('login')}>
-        Log In
-      </Text>
-    );
+    return <Text onClick={handleClick('login')}>Log In</Text>;
   };
 
   return (
     <div className="header">
-      <Container className="mv4 flex justify-between items-center">
-        <div className="flex items-center">
-          <NavigationLink to="/">
-            <Logo />
-          </NavigationLink>
-          <NavigationLink to="/boots" className="link no-underline ml4">
-            <Text className="fw5 pointer">Boots</Text>
-          </NavigationLink>
-        </div>
+      <Container>
+        <NavigationLink to="/">
+          <Logo />
+        </NavigationLink>
+        <NavigationLink to="/boots">
+          <Text>Boots</Text>
+        </NavigationLink>
         {auth()}
       </Container>
     </div>

@@ -43,15 +43,15 @@ export default class Boot extends React.Component<BootProps> {
       <Container>
         <div className="boot-container">
           <div className="boot-image">
-            <Image url="http://via.placeholder.com/300x200" />
+            <Image src="http://via.placeholder.com/300x200" />
           </div>
           <Reviews id={this.props.match.params.bootId} />
           <div className="boot-info">
             <Subheading>Brand</Subheading>
-            <Heading className="mb3">{this.props.boot.brand}</Heading>
+            <Heading>{this.props.boot.brand}</Heading>
 
             <Subheading>Model</Subheading>
-            <Heading className="mb3">{this.props.boot.model}</Heading>
+            <Heading>{this.props.boot.model}</Heading>
 
             <Subheading>Rating</Subheading>
             <Rating stars={5} />

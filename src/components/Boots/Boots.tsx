@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BootInfo } from '../../api/types';
-import { Container, Heading, Text } from '../Styled';
+import { Container, Heading, NavigationLink, Text } from '../Styled';
 import Spinner from '../Styled/Spinner';
 
 import './Boots.css';
@@ -28,14 +28,10 @@ export default class Boots extends React.Component<BootsProps> {
           {Object.keys(this.props.boots).map(key => {
             const boot: BootInfo = this.props.boots[key];
             return (
-              <div className="boot-list-item mv1" key={boot.model}>
-                <Link
-                  to={`boots/${key}`}
-                  className="link animate-bg underline-hover hover-green"
-                >
-                  <Text className="b">{boot.brand} </Text>
-                  <Text>{boot.model}</Text>
-                </Link>
+              <div className="boot-list-item" key={boot.model}>
+                <NavigationLink to={`boots/${key}`}>
+                  {boot.brand} {boot.model}
+                </NavigationLink>
               </div>
             );
           })}

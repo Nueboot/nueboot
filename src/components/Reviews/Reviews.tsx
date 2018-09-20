@@ -7,13 +7,9 @@ export interface ReviewsProps {
 
 const Reviews: React.SFC<ReviewsProps> = () => {
   return (
-    <section className="reviews">
-      <div className="flex justify-between">
-        <Heading size={2} className="ttu dib">
-          Reviews
-        </Heading>
-        <Button className="bg-green white">New Review</Button>
-      </div>
+    <section className="Reviews">
+      <Heading size={2}>Reviews</Heading>
+      <Button>New Review</Button>
     </section>
   );
 };
