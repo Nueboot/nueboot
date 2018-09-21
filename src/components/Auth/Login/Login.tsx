@@ -16,11 +16,15 @@ const HoverText = styled(Text)`
 `;
 
 const Login: React.SFC<LoginProps> = ({ googleLogin, facebookLogin }) => (
-  <Dropdown>
+  <Dropdown tabIndex={0}>
     <Text>Login ⌵</Text>
     <DropdownContent>
-      <HoverText onClick={googleLogin}>Google</HoverText>
-      <HoverText onClick={facebookLogin}>Facebook</HoverText>
+      <HoverText tabIndex={0} onClick={googleLogin}>
+        Google
+      </HoverText>
+      <HoverText tabIndex={0} onClick={facebookLogin}>
+        Facebook
+      </HoverText>
     </DropdownContent>
   </Dropdown>
 );

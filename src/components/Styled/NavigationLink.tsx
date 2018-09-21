@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const NavigationLink = styled(Link)`
   text-decoration: none;
-  color: #777;
+  color: #333;
   transition: font-weight 0.15s ease-in;
   :hover {
     font-weight: 700;

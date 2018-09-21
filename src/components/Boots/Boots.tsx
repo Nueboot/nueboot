@@ -1,14 +1,24 @@
 import React from 'react';
 
 import { BootInfo } from '../../api/types';
-import { Container, Heading, NavigationLink } from '../Styled';
+import { Container, Heading, NavigationLink, Text } from '../Styled';
 import Spinner from '../Styled/Spinner';
 
+import styled from 'styled-components';
 import './Boots.css';
+
+const BoldText = styled(Text)`
+  font-weight: 700;
+`;
+
+interface ByBrand {
+  [key: string]: BootInfo[];
+}
 
 export interface StateProps {
   boots: BootInfo[];
   loading: boolean;
+  byBrand: ByBrand;
 }
 
 export type BootsProps = StateProps;
@@ -25,16 +35,13 @@ export default class Boots extends React.Component<BootsProps> {
       <Container>
         <Heading>Boots</Heading>
         <div className="boots">
-          {Object.keys(this.props.boots).map(key => {
-            const boot: BootInfo = this.props.boots[key];
-            return (
-              <div className="boot-list-item" key={boot.model}>
-                <NavigationLink to={`boots/${key}`}>
-                  {boot.brand} {boot.model}
-                </NavigationLink>
-              </div>
-            );
-          })}
+          {this.props.boots.map(boot => (
+            <div className="boot-list-item" key={boot.id}>
+              <NavigationLink to={`boots/${boot.id}`}>
+                <BoldText>{boot.brand}</BoldText> {boot.model}
+              </NavigationLink>
+            </div>
+          ))}
         </div>
       </Container>
     );

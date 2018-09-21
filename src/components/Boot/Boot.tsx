@@ -1,6 +1,6 @@
 import { BootInfo } from 'api/types';
 import React from 'react';
-import { RouteComponentProps } from 'react-router';
+import { Redirect, RouteComponentProps } from 'react-router';
 
 import Rating from '../Rating';
 import Reviews from '../Reviews';
@@ -36,9 +36,13 @@ export default class Boot extends React.Component<BootProps> {
     if (this.props.loading) {
       return <Spinner />;
     }
+    if (!this.props.loading && !this.props.boot) {
+      return <Redirect to="/boots" />;
+    }
     if (!this.props.boot) {
       return null;
     }
+
     return (
       <Container>
         <div className="boot-container">
