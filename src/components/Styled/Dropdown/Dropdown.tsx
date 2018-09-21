@@ -7,6 +7,9 @@ export const Dropdown = styled.div`
   :hover div {
     display: block;
   }
+  :focus-within div {
+    display: block;
+  }
 `;
 export const DropdownContent = styled.div`
   display: none;

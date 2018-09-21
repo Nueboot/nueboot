@@ -17,9 +17,11 @@ const HoverText = styled(Text)`
 
 const Logout: React.SFC<LogoutProps> = ({ displayName, logout }) => (
   <Dropdown>
-    <Text>{displayName} ⌵</Text>
+    <Text tabIndex={0}>{displayName} ⌵</Text>
     <DropdownContent>
-      <HoverText onClick={logout}>Log out</HoverText>
+      <HoverText tabIndex={0} onClick={logout}>
+        Log out
+      </HoverText>
     </DropdownContent>
   </Dropdown>
 );
