@@ -5,7 +5,7 @@ const Subheading = styled.h4`
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0;
-  color: #777;
+  color: #333;
 `;
 
 export default Subheading;
