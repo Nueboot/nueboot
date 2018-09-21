@@ -15,4 +15,5 @@ export interface BootInfo {
   msrp: number;
   releaseDate: string;
   weight: number;
+  id: string;
 }
