@@ -7,7 +7,7 @@ import { BootsState } from './types';
 
 const initialBootsState: BootsState = {
   loading: false,
-  byId: [],
+  byId: {},
 };
 
 export type BootsActions =
@@ -26,9 +26,18 @@ const BootsReducer = (
         loading: true,
       };
     case 'BOOTS.RECEIVE_BOOTS':
+      const boots = action.payload.boots;
+      const mappedBoots = Object.keys(boots).reduce((acc, id) => {
+        acc[id] = {
+          ...boots[id],
+          id,
+        };
+        return acc;
+      }, {});
+
       return {
         loading: false,
-        byId: action.payload.boots,
+        byId: mappedBoots,
       };
     case 'BOOTS.RECEIVE_BOOT':
       return {
@@ -36,7 +45,10 @@ const BootsReducer = (
         loading: false,
         byId: {
           ...state.byId,
-          [action.payload.id]: action.payload.boot,
+          [action.payload.id]: {
+            ...action.payload.boot,
+            id: action.payload.id,
+          },
         },
       };
     default:
