@@ -55,9 +55,12 @@ const FilterContainer = styled.div`
 `;
 
 export default class Boots extends React.Component<BootsProps, State> {
-  public state = {
-    filter: 'All' as any,
-  };
+  public constructor(props) {
+    super(props);
+    this.state = {
+      filter: 'All',
+    };
+  }
 
   public render() {
     if (this.props.loading) {
