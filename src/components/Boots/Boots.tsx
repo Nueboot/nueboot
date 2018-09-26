@@ -98,7 +98,7 @@ export default class Boots extends React.Component<BootsProps, State> {
   }
 
   private handleFilterClick = (e: React.MouseEvent<HTMLSpanElement>) => {
-    const text = e.currentTarget.innerText as any;
+    const text = e.currentTarget.innerText as Brands;
     const filter = this.state.filter === text ? 'All' : text;
     this.setState({ filter });
   };
