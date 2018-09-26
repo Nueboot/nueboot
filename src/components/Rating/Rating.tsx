@@ -1,8 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
 
 interface RatingProps {
   stars: number;
 }
+
+const StarContainer = styled.div`
+  display: inline;
+  margin-right: 5px;
+`;
+
+const Star = styled.span`
+  color: gold;
+`;
+
+const RatingValue = styled.span`
+  font-weight: 700;
+`;
 
 const decimal = n => n - Math.floor(n);
 
@@ -11,12 +25,12 @@ const Rating: React.SFC<RatingProps> = ({ stars = 0 }) => {
 
   return (
     <div className="Rating">
-      <div className="stars">
+      <StarContainer className="stars">
         {starsArray.map((star, i) => (
-          <span key={`star${i}`}>★</span>
+          <Star key={`star${i}`}>★</Star>
         ))}
-      </div>
-      <span>{`${stars}.${decimal(stars)}`}</span>
+      </StarContainer>
+      <RatingValue>{`${stars}.${decimal(stars)}`}</RatingValue>
     </div>
   );
 };

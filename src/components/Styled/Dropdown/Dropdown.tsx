@@ -15,9 +15,10 @@ export const DropdownContent = styled.div`
   display: none;
   position: absolute;
   right: 0;
-  min-width: 6rem;
+  min-width: 100%;
   text-align: right;
   background-color: white;
+  padding: 0.25rem 0;
   > span {
     padding: 0.25rem 0;
     display: block;
