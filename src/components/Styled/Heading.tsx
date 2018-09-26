@@ -7,7 +7,7 @@ interface HeadingProps {
 const Heading = styled.h1`
   color: rgb(0, 0, 0);
   font-weight: 900;
-  margin: 0;
+  margin: 0 0 1rem 0;
   font-size: ${(props: HeadingProps) =>
     props.size === 2 ? `1.5rem` : `2.25rem`};
 `;
