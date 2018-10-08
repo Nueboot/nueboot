@@ -32,9 +32,11 @@ const BootCardContainer = styled.div`
   }
 `;
 
-const FilterText = styled(Text)`
+const FilterText = styled.div`
+  display: inline-block;
   cursor: pointer;
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
   padding: 0.25rem 0.5rem;
   border-radius: 1rem;
   border: 1px solid black;
