@@ -13,7 +13,7 @@ export const isPending: IsPending = state => {
   return state.session.pending;
 };
 
-export type GetCurrentUser = (state: State) => User | undefined;
+export type GetCurrentUser = (state: State) => User | null | undefined;
 
 export const getCurrentUser: GetCurrentUser = state => {
   return state.session.user;

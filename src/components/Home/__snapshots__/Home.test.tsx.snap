@@ -4,8 +4,19 @@ exports[`Home renders as expected 1`] = `
 <styled.div
   className="home"
 >
-  <styled.h1>
-    Hi
-  </styled.h1>
+  <Styled(styled.div)>
+    <Styled(styled.h1)>
+      Boot Reviews by You
+    </Styled(styled.h1)>
+    <styled.input
+      placeholder="search"
+    />
+    <styled.span>
+      🔍
+    </styled.span>
+  </Styled(styled.div)>
+  <styled.div>
+    <Field />
+  </styled.div>
 </styled.div>
 `;

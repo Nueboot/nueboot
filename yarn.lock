@@ -162,6 +162,10 @@
   version "10.0.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.0.8.tgz#37b4d91d4e958e4c2ba0be2b86e7ed4ff19b0858"
 
+"@types/parcel-env@0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@types/parcel-env/-/parcel-env-0.0.0.tgz#c8ed2c06cd70c9cb89d50bbb1688404fc2a93f33"
+
 "@types/react-dom@^16.0.5":
   version "16.0.5"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.5.tgz#a757457662e3819409229e8f86795ff37b371f96"

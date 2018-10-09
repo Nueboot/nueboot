@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BootInfo, Brands } from '../../api/types';
-import { Container, Heading, Subheading, Text } from '../Styled';
+import { Container, Heading, Subheading } from '../Styled';
 import Spinner from '../Styled/Spinner';
 
 import styled from 'styled-components';
