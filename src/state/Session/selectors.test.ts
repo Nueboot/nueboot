@@ -14,8 +14,9 @@ describe('Session selectors', () => {
         loggedIn: false,
         pending: false,
       },
-      modal: {
-        modalType: null,
+      boots: {
+        byId: {},
+        loading: false,
       },
     };
   });

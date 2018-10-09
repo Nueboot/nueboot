@@ -45,9 +45,3 @@ html, body, #root {
   display: grid;
   grid-template-rows: auto 1fr;
 }
-
-@media (max-width: 64rem) {
-  .App {
-    margin: 2rem 2rem 0rem 2rem;
-  }
-}

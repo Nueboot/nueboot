@@ -1,5 +1,7 @@
 import { BootInfo } from 'api/types';
 import React from 'react';
+import styled from 'styled-components';
+import { Text } from '../Styled';
 
 interface BootStatsProps {
   releaseDate: BootInfo['releaseDate'];
@@ -8,34 +10,49 @@ interface BootStatsProps {
   msrp: BootInfo['msrp'];
 }
 
+const BootStatsContainer = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const BootStatsRow = styled.div`
+  border-bottom: 1px solid rgb(200, 200, 200);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+`;
+
+const BoldText = styled(Text)`
+  font-weight: bold;
+`;
+
 const BootStats: React.SFC<BootStatsProps> = props => {
   return (
-    <div className="boot-stats">
+    <BootStatsContainer className="boot-stats">
       {props.material && (
-        <div className="boot-stats-row">
-          <span>Material</span>
-          <span>{props.material}</span>
-        </div>
+        <BootStatsRow className="boot-stats-row">
+          <BoldText>Material</BoldText>
+          <Text>{props.material}</Text>
+        </BootStatsRow>
       )}
       {props.releaseDate && (
-        <div className="boot-stats-row">
-          <span>Release Date (M/D/Y)</span>
-          <span>{props.releaseDate}</span>
-        </div>
+        <BootStatsRow className="boot-stats-row">
+          <BoldText>Release Date (M/D/Y)</BoldText>
+          <Text>{props.releaseDate}</Text>
+        </BootStatsRow>
       )}
       {props.weight && (
-        <div className="boot-stats-row">
-          <span>Weight</span>
-          <span>{props.weight} oz</span>
-        </div>
+        <BootStatsRow className="boot-stats-row">
+          <BoldText>Weight</BoldText>
+          <Text>{props.weight} oz</Text>
+        </BootStatsRow>
       )}
       {props.msrp && (
-        <div className="boot-stats-row">
-          <span>MSRP</span>
-          <span>${props.msrp}</span>
-        </div>
+        <BootStatsRow className="boot-stats-row">
+          <BoldText>MSRP</BoldText>
+          <Text>${props.msrp}</Text>
+        </BootStatsRow>
       )}
-    </div>
+    </BootStatsContainer>
   );
 };
 

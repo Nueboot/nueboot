@@ -28,6 +28,8 @@ const HeaderContainer = styled.div`
   align-items: center;
   width: 100%;
   margin: 3rem 0;
+  z-index: 10;
+  position: relative;
   @media (max-width: 64rem) {
     flex-direction: column;
     margin: 0 0 3rem 0;
