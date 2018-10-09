@@ -71,7 +71,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,ts,tsx,json,css,md}": [
+    "src/**/*.{js,ts,tsx,json,md}": [
       "prettier --parser typescript --single-quote --trailing-comma es5 --write",
       "git add"
     ]
