@@ -9,9 +9,6 @@ const LogoContainer = styled.div`
   width: 120px;
   display: inline-block;
   line-height: 0;
-  @media (max-width: 64rem) {
-    margin-bottom: 1rem;
-  }
 `;
 
 const LinkContainer = styled.div`
@@ -30,11 +27,6 @@ const HeaderContainer = styled.div`
   margin: 3rem 0;
   z-index: 10;
   position: relative;
-  @media (max-width: 64rem) {
-    flex-direction: column;
-    margin: 0 0 3rem 0;
-    flex-wrap: wrap;
-  }
 `;
 
 const Header: React.SFC<{}> = () => (
