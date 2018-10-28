@@ -36,21 +36,11 @@ const HomeHeading = styled(Heading)`
   color: white;
 `;
 
-const SearchIcon = styled.span`
-  background-color: white;
-  padding: 14px 20px;
-  position: absolute;
-  /* right: calc(30% - 32px); */
-  bottom: 0;
-  cursor: pointer;
-`;
-
 const Home = () => (
   <HomeContainer className="home">
     <StyledContainer>
       <HomeHeading>Boot Reviews by You</HomeHeading>
-      <SearchBox placeholder="search" />
-      <SearchIcon>🔍</SearchIcon>
+      <SearchBox />
     </StyledContainer>
     <FieldContainer>
       <Field />

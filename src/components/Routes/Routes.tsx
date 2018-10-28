@@ -4,12 +4,14 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Boot from '../Boot';
 import Boots from '../Boots';
 import Home from '../Home';
+import Search from '../Search';
 
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route exact path="/boots" component={Boots} />
     <Route exact path="/boots/:bootId" component={Boot} />
+    <Route exact path="/search" component={Search} />
     <Redirect to="/" />
   </Switch>
 );

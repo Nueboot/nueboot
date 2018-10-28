@@ -5,8 +5,8 @@ import { Container, Heading, Subheading } from '../Styled';
 import Spinner from '../Styled/Spinner';
 
 import styled from 'styled-components';
-import BootCard from '../BootCard';
 import './Boots.css';
+import BootsView from './BootsView';
 
 interface ByBrand {
   [key: string]: BootInfo[];
@@ -23,14 +23,6 @@ export interface State {
 }
 
 export type BootsProps = StateProps;
-
-const BootCardContainer = styled.div`
-  margin-bottom: 1rem;
-  padding: 0.25rem;
-  :hover {
-    opacity: 0.7;
-  }
-`;
 
 const FilterText = styled.div`
   display: inline-block;
@@ -91,13 +83,7 @@ export default class Boots extends React.Component<BootsProps, State> {
           <Subheading style={{ marginBottom: '10px' }}>Filter:</Subheading>
           {brands}
         </FilterContainer>
-        <div className="boots">
-          {boots.map(boot => (
-            <BootCardContainer>
-              <BootCard boot={boot} />
-            </BootCardContainer>
-          ))}
-        </div>
+        <BootsView boots={boots} />
       </Container>
     );
   }
