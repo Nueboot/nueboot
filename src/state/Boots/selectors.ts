@@ -24,3 +24,19 @@ export const getBootsByBrand = (state: State) => {
     return acc;
   }, {});
 };
+
+export const findBoots = (state: State, query: string) => {
+  const exp = `(?:${query})`;
+  const regex = new RegExp(exp, 'gi');
+
+  return Object.keys(state.boots.byId).reduce((acc: BootInfo[], key) => {
+    const boot = state.boots.byId[key];
+    const brand = boot.brand.search(regex);
+
+    const model = boot.model.search(regex);
+    if (brand > -1 || model > -1) {
+      acc.push(boot);
+    }
+    return acc;
+  }, []);
+};

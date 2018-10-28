@@ -7,3 +7,4 @@ export { default as Subheading } from './Subheading';
 export { default as Spinner } from './Spinner';
 export { default as Image } from './Image';
 export { default as NavigationLink } from './NavigationLink';
+export { default as SearchIcon } from './SearchIcon';
