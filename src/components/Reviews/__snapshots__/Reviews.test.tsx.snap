@@ -4,13 +4,17 @@ exports[`Reviews renders correctly 1`] = `
 <section
   className="Reviews"
 >
-  <styled.h1
-    size={2}
-  >
-    Reviews
-  </styled.h1>
-  <styled.button>
-    New Review
-  </styled.button>
+  <styled.div>
+    <Styled(styled.h1)
+      size={2}
+    >
+      Reviews
+    </Styled(styled.h1)>
+    <styled.button
+      onClick={[Function]}
+    >
+      New Review
+    </styled.button>
+  </styled.div>
 </section>
 `;

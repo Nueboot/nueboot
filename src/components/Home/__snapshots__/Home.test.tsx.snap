@@ -8,12 +8,7 @@ exports[`Home renders as expected 1`] = `
     <Styled(styled.h1)>
       Boot Reviews by You
     </Styled(styled.h1)>
-    <styled.input
-      placeholder="search"
-    />
-    <styled.span>
-      🔍
-    </styled.span>
+    <Connect(SearchBox) />
   </Styled(styled.div)>
   <styled.div>
     <Field />
