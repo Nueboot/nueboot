@@ -57,8 +57,8 @@ export default class SearchBox extends React.PureComponent<
 
 const Icon = styled.div`
   svg {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.25rem;
+    width: 1.25rem;
     margin-left: -2.75rem;
     fill: slategrey;
   }

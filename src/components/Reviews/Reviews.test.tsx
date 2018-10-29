@@ -7,7 +7,11 @@ describe('Reviews', () => {
 
   beforeEach(() => {
     const props: ReviewsProps = {
+      reviews: [],
+      currentUser: '',
       id: '1',
+      submitReview: jest.fn(),
+      getReviews: jest.fn(),
     };
     component = shallow(<Reviews {...props} />);
   });

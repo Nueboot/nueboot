@@ -65,9 +65,13 @@ export default class Boots extends React.Component<BootsProps, State> {
     }
     const brands = Object.keys(this.props.byBrand).map(brand => {
       return this.state.filter === brand ? (
-        <ActiveFilter onClick={this.handleFilterClick}>{brand}</ActiveFilter>
+        <ActiveFilter key={brand} onClick={this.handleFilterClick}>
+          {brand}
+        </ActiveFilter>
       ) : (
-        <FilterText onClick={this.handleFilterClick}>{brand}</FilterText>
+        <FilterText key={brand} onClick={this.handleFilterClick}>
+          {brand}
+        </FilterText>
       );
     });
 

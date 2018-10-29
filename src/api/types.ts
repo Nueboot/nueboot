@@ -17,3 +17,10 @@ export interface BootInfo {
   weight: number;
   id: string;
 }
+
+export interface BootReview {
+  body: string;
+  id: string;
+  stars: number;
+  user: string;
+}

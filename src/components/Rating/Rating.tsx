@@ -10,7 +10,7 @@ const StarContainer = styled.div`
   margin-right: 5px;
 `;
 
-const Star = styled.span`
+export const Star = styled.span`
   color: gold;
 `;
 
