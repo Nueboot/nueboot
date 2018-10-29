@@ -39,6 +39,7 @@ const RightLinks = styled.div`
     border: 1px solid lightgray;
     margin-right: 1rem;
     padding: 0.75rem;
+    width: 100%;
   }
   svg {
     margin-left: -3.25rem;

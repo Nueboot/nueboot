@@ -1,15 +1,28 @@
+import { BootReview } from 'api/types';
 import React from 'react';
 import styled from 'styled-components';
 import ReviewForm from '../ReviewForm';
 import { Button, Heading } from '../Styled';
 
-export interface ReviewsProps {
+export interface Props {
   readonly id: string;
 }
 
 interface ReviewsState {
   showForm: boolean;
 }
+
+export interface StateProps {
+  reviews: BootReview[];
+  currentUser: string;
+}
+
+export interface DispatchProps {
+  submitReview(reivew: BootReview, user: string): void;
+  getReviews(id: string): void;
+}
+
+export type ReviewsProps = Props & StateProps & DispatchProps;
 
 export default class Reviews extends React.Component<
   ReviewsProps,
@@ -19,6 +32,10 @@ export default class Reviews extends React.Component<
     showForm: false,
   };
 
+  public componentDidMount() {
+    this.getReviews();
+  }
+
   public render() {
     return (
       <section className="Reviews">
@@ -26,7 +43,14 @@ export default class Reviews extends React.Component<
           <StyledHeading size={2}>Reviews</StyledHeading>
           <Button onClick={this.showForm}>New Review</Button>
         </Section>
-        {this.state.showForm && <ReviewForm />}
+        {this.state.showForm && (
+          <ReviewForm onFormSubmit={this.onFormSubmit} bootId={this.props.id} />
+        )}
+        {this.props.reviews.map(review => (
+          <div key={review.id}>
+            {review.body} - {review.id} - {review.stars} - {review.user}
+          </div>
+        ))}
       </section>
     );
   }
@@ -35,6 +59,14 @@ export default class Reviews extends React.Component<
     this.setState({
       showForm: !this.state.showForm,
     });
+  };
+
+  private getReviews() {
+    this.props.getReviews(this.props.id);
+  }
+
+  private onFormSubmit = (review: BootReview) => {
+    this.props.submitReview(review, this.props.currentUser);
   };
 }
 

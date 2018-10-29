@@ -1,6 +1,6 @@
 import firebase from '../lib/firebase';
 
-import { BootInfo } from './types';
+import { BootInfo, BootReview } from './types';
 
 export type FirebaseWrite = (path: string, data: {}) => Promise<any>;
 
@@ -56,3 +56,18 @@ export const getAllBoots: GetAllBoots = () => getData('boots');
 export type GetBoot = (id: string) => Promise<BootInfo>;
 
 export const getBoot: GetBoot = id => getData(`boots/${id}`);
+
+export const addReview = (review: BootReview, user) => {
+  const newReview = firebase
+    .database()
+    .ref(`/reviews/${review.id}`)
+    .push();
+
+  return newReview.set({
+    body: review.body,
+    stars: review.stars,
+    user,
+  });
+};
+
+export const fetchBootReview = (id: string) => getData(`/reviews/${id}`);

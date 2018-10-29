@@ -3,7 +3,6 @@ import React from 'react';
 const SearchIcon: React.SFC = () => (
   <svg
     version="1.1"
-    id="Capa_1"
     x="0px"
     y="0px"
     width="485.213px"
