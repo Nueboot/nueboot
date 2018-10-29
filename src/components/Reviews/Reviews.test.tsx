@@ -10,8 +10,8 @@ describe('Reviews', () => {
       reviews: [],
       currentUser: '',
       id: '1',
-      submitReview: () => {},
-      getReviews: () => {},
+      submitReview: jest.fn(),
+      getReviews: jest.fn(),
     };
     component = shallow(<Reviews {...props} />);
   });
