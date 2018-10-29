@@ -15,6 +15,7 @@ script:
 - yarn build
 - yarn test
 deploy:
+  edge: true
   skip_cleanup: true
   on:
     branch: master
