@@ -9,17 +9,18 @@ export const createReview = (review: BootReview, user: string) => dispatch => {
     });
 };
 
-export const receiveReview = (reviews: BootReview[]) => ({
+export const receiveReview = (reviews: BootReview, id: string) => ({
   type: 'REVIEWS.RECEIVE_REVIEW',
   payload: {
-    ...reviews,
+    id,
+    reviews,
   },
 });
 
 export const fetchReview = (id: string) => dispatch => {
   fetchBootReview(id)
     .then(reviews => {
-      dispatch(receiveReview([reviews as BootReview]));
+      dispatch(receiveReview(reviews as BootReview, id));
     })
     .catch(err => {
       throw err;
