@@ -1,4 +1,4 @@
-import { Button } from 'components/Styled';
+import { Button, Text } from 'components/Styled';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -25,15 +25,20 @@ class ReviewForm extends React.Component<ReviewFormProps, ReviewFormState> {
     return (
       <div>
         <Form>
-          <label htmlFor="body">Review</label>
-          <TextInput
-            name="body"
-            type="text"
-            onChange={this.onBodyChange}
-            value={this.state.body}
-            required
-          />
-          <Rating onClick={this.onStarChange} />
+          <Section>
+            <label htmlFor="body">Review</label>
+            <TextInput
+              name="body"
+              type="text"
+              onChange={this.onBodyChange}
+              value={this.state.body}
+              required
+            />
+          </Section>
+          <Section>
+            <Text>Rating</Text>
+            <Rating onClick={this.onStarChange} />
+          </Section>
         </Form>
         <Button onClick={this.onFormSubmit} value="submit">
           Submit
@@ -67,9 +72,12 @@ class ReviewForm extends React.Component<ReviewFormProps, ReviewFormState> {
 export default ReviewForm;
 
 const TextInput = styled.input`
+  display: block;
+  width: 100%;
+  height: 3rem;
   border: 1px solid slategray;
   padding: 3px;
-  flex: 1;
+  text-align: top;
   margin-right: 10px;
   :focus {
     border-bottom-width: 1px;
@@ -79,5 +87,10 @@ const TextInput = styled.input`
 
 const Form = styled.form`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+`;
+
+const Section = styled.section`
+  margin: 5px 0;
+  flex: 1;
 `;
