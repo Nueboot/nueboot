@@ -1,6 +1,7 @@
 import { BootReview } from 'api/types';
 import React from 'react';
 import styled from 'styled-components';
+import Review from '../Review';
 import ReviewForm from '../ReviewForm';
 import { Button, Heading } from '../Styled';
 
@@ -47,9 +48,7 @@ export default class Reviews extends React.Component<
           <ReviewForm onFormSubmit={this.onFormSubmit} bootId={this.props.id} />
         )}
         {this.props.reviews.map(review => (
-          <div key={review.id}>
-            {review.body} - {review.id} - {review.stars} - {review.user}
-          </div>
+          <Review key={review.id} {...review} />
         ))}
       </section>
     );
