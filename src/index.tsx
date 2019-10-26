@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-
-import App from 'components/App';
 import 'typeface-heebo';
+
+import App from './components/App';
 
 const root = document.querySelector('#root');
 
