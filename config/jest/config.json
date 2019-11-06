@@ -15,12 +15,11 @@
   "modulePathIgnorePatterns": ["<rootDir>/coverage, <rootDir>/dist"],
   "modulePaths": ["<rootDir>/src"],
   "rootDir": "../..",
-  "setupTestFrameworkScriptFile": "<rootDir>/config/jest/framework.ts",
+  "setupFilesAfterEnv": ["<rootDir>/config/jest/framework.ts"],
   "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "testURL": "http://localhost/",
   "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "testMatch": [
-      "**/*.(test|spec).(ts|tsx|js)"
-    ]
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  },
+  "testMatch": ["**/*.(test|spec).(ts|tsx|js)"]
 }
