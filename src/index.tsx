@@ -1,8 +1,9 @@
-import React from 'react';
-import { render } from 'react-dom';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
-import 'typeface-heebo';
+import Hello from "./components/Hello";
 
-const root = document.querySelector('#root');
+const rootElement = document.getElementById("root");
+const root = ReactDOM.createRoot(rootElement);
 
-render(<div>Under construction</div>, root);
+root.render(<Hello name="mickey" />);
