@@ -1,15 +1,16 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",
 
-  entry: './src/index.tsx',
+  entry: "./src/index.tsx",
 
   output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'bundle.min.js'
+    path: path.join(__dirname, "/dist"),
+    filename: "bundle.min.js"
   },
 
   resolve: {
@@ -39,7 +40,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: "./src/index.html"
     })
   ],
 
