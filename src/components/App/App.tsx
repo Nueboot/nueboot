@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import "typeface-heebo";
 
 import Router from "../Router";
 
