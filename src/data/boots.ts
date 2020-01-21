@@ -1,14 +1,18 @@
 import firebase from "../lib/firebase";
 import { Boot } from "../types/boots";
 
-let cache: Boot[] | null = null;
+export interface BootCache {
+  [key: string]: Boot;
+}
+
+export let cache: BootCache | null = null;
 
 async function getBoots() {
   return firebase
     .database()
     .ref("boots")
     .once("value")
-    .then(snapshot => (cache = snapshot.val()));
+    .then(snapshot => (cache = Object.assign({}, snapshot.val())));
 }
 
 function readCache() {

@@ -1,21 +1,20 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 import { Links } from "./Header.styles";
 import Logo from "../../assets/nueboot.svg";
 
-function Header() {
+export default function Header() {
   return (
     <div>
-      <a href="/">
+      <Link to="/">
         <img src={Logo} />
-      </a>
+      </Link>
       <Links>
         <li>
-          <a href="/boots">Boots</a>
+          <Link to="/boots">Boots</Link>
         </li>
       </Links>
     </div>
   );
 }
-
-export default Header;
