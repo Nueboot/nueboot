@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 
 import App from "./components/App";
 
+import "typeface-heebo";
+
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
 
