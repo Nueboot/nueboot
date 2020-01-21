@@ -1,8 +1,11 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import 'typeface-heebo';
+import App from "./components/App";
 
-const root = document.querySelector('#root');
+import "typeface-heebo";
 
-render(<div>Under construction</div>, root);
+const rootElement = document.getElementById("root");
+const root = ReactDOM.createRoot(rootElement);
+
+root.render(<App />);
