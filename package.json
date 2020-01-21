@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --mode development --open --hot",
+    "start": "webpack-dev-server --mode development --hot",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -54,8 +54,8 @@
   },
   "dependencies": {
     "firebase": "7.3.0",
-    "react": "^0.0.0-experimental-38dd17ab9",
-    "react-dom": "^0.0.0-experimental-38dd17ab9",
+    "react": "^0.0.0-experimental-f42431abe",
+    "react-dom": "^0.0.0-experimental-f42431abe",
     "react-router-dom": "^5.1.2",
     "styled-components": "^5.0.0",
     "typeface-heebo": "^0.0.72"

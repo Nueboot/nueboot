@@ -9,7 +9,7 @@
     "typeRoots": ["./node_modules/@types"],
     "types": [
       "react-dom/experimental",
-      "react",
+      "react/experimental",
       "enzyme",
       "jest",
       "enzyme-adapter-react-16"
