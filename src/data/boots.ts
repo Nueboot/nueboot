@@ -1,4 +1,4 @@
-import firebase from "../lib/firebase";
+import { app } from "../lib/firebase";
 import { Boot } from "../types/boots";
 
 export interface BootCache {
@@ -8,7 +8,7 @@ export interface BootCache {
 export let cache: BootCache | null = null;
 
 async function getBoots() {
-  return firebase
+  return app
     .database()
     .ref("boots")
     .once("value")
