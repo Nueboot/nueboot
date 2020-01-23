@@ -1,4 +1,5 @@
-import firebase from "firebase";
+import firebaseApp from "firebase/app";
+import database from "firebase/database";
 
 const config = {
   apiKey: "AIzaSyDWHl06j32I3-4n9igIKGpcKdaqOb7PwTo",
@@ -9,4 +10,6 @@ const config = {
   storageBucket: "nueboot-app.appspot.com"
 };
 
-export default firebase.initializeApp(config);
+const app = firebaseApp.initializeApp(config);
+
+export { app, database };

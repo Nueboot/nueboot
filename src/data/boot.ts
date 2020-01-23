@@ -1,10 +1,10 @@
-import firebase from "../lib/firebase";
+import { app } from "../lib/firebase";
 import { cache as bootCache } from "./boots";
 
 const cache = bootCache || {};
 
 async function getBoot(id: string) {
-  return firebase
+  return app
     .database()
     .ref(`boots/${id}`)
     .once("value")
