@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
 import "typeface-heebo";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body {
