@@ -1,8 +1,8 @@
 import * as React from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
-import BootsList from "../BootsList";
 import Boot from "../Boot";
+import BootsList from "../BootsList";
 import Header from "../Header";
 
 function Router() {

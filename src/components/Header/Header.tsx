@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import { Links } from "./Header.styles";
 import Logo from "../../assets/nueboot.svg";
+import { Links } from "./Header.styles";
 
 export default function Header() {
   return (
