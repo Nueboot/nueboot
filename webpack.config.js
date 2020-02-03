@@ -20,7 +20,11 @@ module.exports = {
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".ts", ".tsx", ".js"],
+    modules: ["node_modules"],
+    alias: {
+      "react-dom": "@hot-loader/react-dom"
+    }
   },
 
   module: {
