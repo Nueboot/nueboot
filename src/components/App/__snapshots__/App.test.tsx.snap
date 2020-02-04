@@ -9,6 +9,9 @@ exports[`App renders as expected 1`] = `
   }
 >
   <Memo(GlobalStyleComponent) />
-  <Router />
+  <styled.div>
+    <Router />
+  </styled.div>
+  <Footer />
 </Suspense>
 `;
