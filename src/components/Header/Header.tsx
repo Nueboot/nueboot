@@ -2,19 +2,26 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 import Logo from "../../assets/nueboot.svg";
-import { Links } from "./Header.styles";
+import { Links, Container, LogoContainer } from "./Header.styles";
 
 export default function Header() {
   return (
-    <div>
-      <Link to="/">
+    <Container>
+      <LogoContainer to="/">
         <img src={Logo} />
-      </Link>
+      </LogoContainer>
       <Links>
+        <li>
+          <Link to="/trending">Trending</Link>
+        </li>
         <li>
           <Link to="/boots">Boots</Link>
         </li>
+        <li>
+          <Link to="/quiz">Quiz</Link>
+        </li>
+        <li>Sign in</li>
       </Links>
-    </div>
+    </Container>
   );
 }
